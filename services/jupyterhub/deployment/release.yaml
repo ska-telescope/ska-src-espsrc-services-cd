@@ -53,7 +53,7 @@ spec:
               urllib.request.urlretrieve("https://raw.githubusercontent.com/manuparra/espsrc-science-platform/main/espsrc.png", "espsrc.png")
               c.JupyterHub.logo_file = '/srv/jupyterhub/espsrc.png'
 
-      baseUrl: /
+      baseUrl: /jtest
 
       db:
         pvc:
