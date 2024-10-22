@@ -4,6 +4,7 @@ metadata:
   name: jupyterhub
   namespace: jupyterhub-test
 spec:
+  interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
       chart: jupyterhub
