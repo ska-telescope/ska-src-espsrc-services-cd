@@ -2,7 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: jupyterhub
-  namespace: jupyterhub
+  namespace: jupyterhub-test
 spec:
   chart:
     spec:
@@ -12,5 +12,7 @@ spec:
         name: jupyterhub
         namespace: flux-system
       version: 3.3.8
-  valuesFiles:
-    - values.yaml  
+  valuesFrom:
+    - configMapKeyRef:
+        name: jupyterhub-values
+        key: values.yaml
