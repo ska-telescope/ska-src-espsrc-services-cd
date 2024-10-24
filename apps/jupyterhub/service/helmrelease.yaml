@@ -15,6 +15,6 @@ spec:
       version: 3.3.8
   valuesFrom:
     - kind: Secret
-    - name: jupyterhub-token-secret
+      name: jupyterhub-token-secret
     - kind: ConfigMap
       name: jupyterhub-values
