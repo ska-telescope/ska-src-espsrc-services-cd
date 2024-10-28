@@ -15,7 +15,7 @@ spec:
       version: 3.3.8
   valuesFrom:
     - kind: Secret
-      name: external-secret-jh
+      name: jupyterhub-secrets
   values: 
     proxy:
       secretToken: CLIENT-ID
