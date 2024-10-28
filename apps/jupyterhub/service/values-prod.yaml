@@ -1,8 +1,15 @@
-proxy:
-  secretToken: "asdb"
-  service:
-    type: NodePort
-    nodePorts:
-      http: 31080
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prod-env-values
+  namespace: jupyterhub-test
+data:
+  values.yaml: |
+    proxy:
+      secretToken: "asdasd"
+      service:
+        type: NodePort
+        nodePorts:
+          http: 31080
         
   
