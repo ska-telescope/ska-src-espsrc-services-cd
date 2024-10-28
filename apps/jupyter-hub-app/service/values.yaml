@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: jupyterhub-values
+  namespace: jupyterhub-test
+data:
+  values.yaml: |
+    proxy:
+      secretToken: {{ .TOKEN | quote }}
+      service:
+        type: NodePort
+        nodePorts:
+          http: 31080
+        
