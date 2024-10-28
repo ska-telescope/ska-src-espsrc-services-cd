@@ -6,7 +6,6 @@ resources:
   - ExternalSecret.yaml
   - helmrepository.yaml
   #- values.yaml
-  - es.yaml
   - helmrelease.yaml
   
   
