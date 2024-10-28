@@ -14,7 +14,14 @@ spec:
         namespace: flux-system
       version: 3.3.8
   valuesFrom:
-    #- kind: Secret
-    #  name: external-secret-jh
-    - kind: ConfigMap
-      name: jupyterhub-values
+    - kind: Secret
+      name: external-secret-jh
+    #- kind: ConfigMap
+    #  name: jupyterhub-values
+  values: 
+    proxy:
+      secretToken: {{ .CLIENT-ID }}
+      service:
+        type: NodePort
+        nodePorts:
+          http: 31080
