@@ -20,7 +20,7 @@ spec:
     #  name: jupyterhub-values
   values: 
     proxy:
-      secretToken: {{ .CLIENT-ID }}
+      secretToken: CLIENT-ID-bk
       service:
         type: NodePort
         nodePorts:
