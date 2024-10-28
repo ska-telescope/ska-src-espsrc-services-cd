@@ -6,9 +6,10 @@ metadata:
 data:
   values.yaml: |
     proxy:
-      secretToken: {{ .TOKEN }}
+      secretToken: TOKEN
       service:
         type: NodePort
         nodePorts:
           http: 31080
         
+  

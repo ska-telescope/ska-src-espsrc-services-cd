@@ -1,0 +1,8 @@
+proxy:
+  secretToken: "asdb"
+  service:
+    type: NodePort
+    nodePorts:
+      http: 31080
+        
+  
