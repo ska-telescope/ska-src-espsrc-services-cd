@@ -18,7 +18,7 @@ spec:
       name: jupyterhub-secrets
   values: 
     proxy:
-      secretToken: {{ .Values.TOKEN }}
+      secretToken: TOKEN
       service:
         type: NodePort
         nodePorts:
