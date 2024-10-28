@@ -22,5 +22,5 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: prod-env-values
-      valuesKey: values.yaml
+      valuesKey: values-prod.yaml
   
