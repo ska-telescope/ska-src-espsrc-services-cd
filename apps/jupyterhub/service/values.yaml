@@ -6,7 +6,7 @@ metadata:
 data:
   values.yaml: |
     proxy:
-      secretToken: {{ .Values.TOKEN | quote }}
+      secretToken: {{ .Values.TOKEN }}
       service:
         type: NodePort
         nodePorts:
