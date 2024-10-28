@@ -5,7 +5,7 @@ resources:
   - SecretStore.yaml
   - ExternalSecret.yaml
   - helmrepository.yaml
-  - values-prod.yaml
+  - values.yaml
   - helmrelease.yaml
   
   

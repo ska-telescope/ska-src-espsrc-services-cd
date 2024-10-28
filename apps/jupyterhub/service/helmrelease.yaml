@@ -21,6 +21,6 @@ spec:
   #  - name: jupyterhub-values
   valuesFrom:
     - kind: ConfigMap
-      name: prod-env-values
-      valuesKey: values-prod.yaml
+      name: jupyterhub-values
+      #valuesKey: values-prod.yaml
   
