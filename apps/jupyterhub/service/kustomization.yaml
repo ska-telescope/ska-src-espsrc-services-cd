@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../secrets-cluster-config/SecretStore.yaml
-  - ../secret-cluster-config/ExternalSecret.yaml
+  - ../secrets-cluster-config/ExternalSecret.yaml
   - helmrepository.yaml
   - values.yaml
   - helmrelease.yaml
