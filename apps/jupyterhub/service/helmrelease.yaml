@@ -19,6 +19,16 @@ spec:
       valuesKey: TOKEN
       targetPath: proxy.secretToken
       optional: false
+    - kind: Secret
+      name: jupyterhub-secrets
+      valuesKey: CLIENT-ID
+      targetPath: hub.GenericOAuthenticator.client_id
+      optional: false
+    - kind: Secret
+      name: jupyterhub-secrets
+      valuesKey: CLIENT-SECRET
+      targetPath: hub.GenericOAuthenticator.client_secret
+      optional: false
     - kind: ConfigMap
       name: jupyterhub-values
   
