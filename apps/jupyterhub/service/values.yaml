@@ -42,6 +42,7 @@ data:
         pvc:
           storageClassName: local-path
     singleuser:
+      startTimeout: 3600
       memory:
         limit: 1G
         guarantee: 1G
