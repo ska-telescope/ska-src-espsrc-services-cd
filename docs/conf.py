@@ -6,8 +6,8 @@ sys.path.insert(0, os.path.abspath('../../'))
 
 # -- Project information -----------------------------------------------------
 
-project = 'My Project'
-author = 'Tu Nombre'
+project = 'espSRC Services deployment and ocumentation'
+author = 'The espSRC Team - Instituto de Astrofísica de Andalucía.'
 release = '0.1'
 
 # -- General configuration ---------------------------------------------------

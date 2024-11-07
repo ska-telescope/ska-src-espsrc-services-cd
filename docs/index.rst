@@ -1,20 +1,15 @@
-.. My Project documentation master file, created by
-   sphinx-quickstart on Thu Jan 01 2024.
+.. espSRC docs
 
-Welcome to My Project's documentation!
-======================================
+espSRC Services Deployment
+==========================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   introduction
-   installation
-   some_module
 
-Indices and tables
-==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+JupyterHub
+----------
+
+
