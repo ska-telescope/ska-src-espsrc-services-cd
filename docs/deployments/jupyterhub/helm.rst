@@ -23,11 +23,12 @@ Kubernetes Cluster
 
 Ensure you have a running Kubernetes cluster with at least the next versions:
 
-```{note}
-Client Version: v1.30.6+k3s1
-Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
-Server Version: v1.30.6+k3s1
-```
+.. note ::
+
+    Client Version: v1.30.6+k3s1
+    Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
+    Server Version: v1.30.6+k3s1
+
 
 Helm
 ^^^^ 
@@ -63,7 +64,7 @@ However, to do it manually, we apply the following command on each node:
                   -o name=spsrc-k8-cluster00 \
                   -o secretfile=/etc/ceph/ceph.client.k8s-shared.secret
 
-```{note}
+.. important ::
 
 Previously to do this step you must have created the CephFS storage with the following procedure for a 20TB storage folder:
 

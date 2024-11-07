@@ -12,4 +12,5 @@ espSRC Services Deployment
 JupyterHub
 ----------
 
+- Helm deployment :doc:`./deployments/jupyterhub/helm`. 
 
