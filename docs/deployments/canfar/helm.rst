@@ -1,8 +1,11 @@
-.. canfar-helm
-
+.. _canfar-helm: 
 
 CANFAR Science Platform
 =======================
+
+.. info ::
+    
+    espSRC Rucio-RSE endpoint: https://canfar.espsrc.iaa.csic.es 
 
 The CANFAR Science Platform is a cloud-based infrastructure designed to support astronomical research by providing 
 scalable data storage, processing, and analysis capabilities. Built on top of the Canadian Advanced Network for Astronomical 

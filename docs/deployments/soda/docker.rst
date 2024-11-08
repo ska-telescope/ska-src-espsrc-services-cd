@@ -1,8 +1,11 @@
 .. _soda:
 
-
 SODA Service
 ============
+
+.. info ::
+    
+    espSRC Rucio-RSE endpoint: https://soda.espsrc.iaa.csic.es 
 
 The SODA (Service for Data Access) service is a standardized protocol designed to 
 facilitate data retrieval and management in the field of astronomy. Based on the 
@@ -21,7 +24,6 @@ Features:
 - It saves bandwidth by downloading only the needed portions data.
 - It recognizes standard FITS WCS axes encoding.
 - Current implementation relies on POSIX-like data storage.
-
 
 Prerequisites
 -------------
@@ -83,7 +85,6 @@ path in your RSE, in our case it needs to be pointing to ``/storage/dteam/disk/d
         - ./security/keystore.jks:/etc/pki/tls/keystore.jks:ro
         - ./security/keystore.pwd:/etc/pki/tls/keystore.pwd:ro
     
-
 Deployment Steps
 ----------------
 
@@ -128,8 +129,6 @@ To make a request with sky coordinates in GALACTIC system using access to the RS
     --data-urlencode "POS=CIRCLE 110.24 67.14 0.25" \
     --data-urlencode "POSSYS=GALACTIC" \
     -v -o soda-coord-conversion-2-GALACTIC.fits http://spsrc08.iaa.csic.es:18019/ska/datasets/soda
-
-
 
 Troubleshooting
 ---------------

@@ -1,7 +1,12 @@
-.. jupyterlab-helm
+.. _jupyterlab-helm: 
 
 JupyterHub deployment with Helm Chart
 =====================================
+
+.. info ::
+    
+    espSRC JupyteHub service endpoint: https://notebook.espsrc.iaa.csic.es 
+
 
 .. note ::
     Kubernetes Server Version: v1.30.6+k3s1

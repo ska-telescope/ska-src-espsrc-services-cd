@@ -3,11 +3,14 @@
 RUCIO RSE - WebDAV
 ==================
 
+.. info ::
+    
+    espSRC Rucio-RSE endpoint: https://spsrc14.iaa.csic.es:18027/disk
+
 Prerequisites
 -------------
 
 Configure your IAM A&A account and create a IAM client following the next steps: https://ska-telescope.gitlab.io/src/kb/ska-src-docs-operator/services/local/mandatory/rucio-storage-element/rucio-storage-element.html#iam-configuration
-
 
 Then it is necessary to prepare a storage where Rucio will place the files and replicas assigned to espSRC. 
 For this, it is necessary to connect a storage unit to the node where the WebDav service is installed.  
@@ -30,8 +33,6 @@ However, to do it manually, we apply the following command on each node:
                   /storage/dteam/disk/ \
                   -o name=rucio-rse-stormwebdav \
                   -o secretfile=/etc/ceph/ceph.client.rucio-shared.secret
-
-
 
 Service Configuration and Deployment Steps
 ------------------------------------------
@@ -305,7 +306,6 @@ show a report of the results of the connectivity test.
 
 Functional tests and SKAO Datalake monitoring
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 Once the RSE has joined the SKAO Datalake and the connectivity tests 
 have been successful, the next step is to verify that the RSE is being 
 monitored through the functional tests and the RSE appears in Grafana. 
@@ -316,10 +316,8 @@ appears in the following monitoring platform
 `SKAO Monitoring <https://monit.srcdev.skao.int/grafana/login>` within 
 the dashboard `Rucio events`.
 
-
 Troubleshooting
 ---------------
-
 Part of the problems reported with WebDav and Rucio RSE stem from storage space management, 
 storage directory permissions or connectivity with the SKAO-IAM client.
 
@@ -327,13 +325,11 @@ Here are some of the most common issues encountered in deployment.
 
 Problem with permissions
 ^^^^^^^^^^^^^^^^^^^^^^^^
-
 Check that the RSE storage directory has the permissions of the user ``storm`` and the group ``storm``. 
 Check that your storage unit and drive mount support extended Attributes for the file system.
 
 Renewal of SSL certificates
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
 This causes the service to not connect correctly with the SKAO Rucio Server Global, so the 
 information panels and monitoring metrics will have a marked problem. 
 This requires the use of a tool to be able to prepare the certificate a few days before the expiry date. 

@@ -20,6 +20,10 @@ SODA Service
 ------------
 - Docker deployment :doc:`./deployments/soda/docker`. 
 
+PerfSONAR Service
+-----------------
+- Deployment :doc:`./deployments/perfsonar/manual`. 
+
 CANFAR Science Platform
 ----------
 - Helm deployment :doc:`./deployments/canfar/helm`. 
