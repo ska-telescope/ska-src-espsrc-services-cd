@@ -3,15 +3,21 @@
 espSRC Services Deployment
 ==========================
 
+
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-
+  :caption: Rucio RSE
+  
+  deployment/rse/manual
+ 
 espSRC Rucio RSE
 ----------------
 - WebDav deployment :doc:`./deployments/rse/manual`. 
 
+.. toctree::
+  :caption: Rucio RSE
+  
+  deployment/jupyter/helm
+ 
 JupyterHub
 ----------
 - Helm deployment :doc:`./deployments/jupyterhub/helm`. 

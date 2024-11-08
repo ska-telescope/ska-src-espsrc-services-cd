@@ -16,6 +16,10 @@ extensions = [
     'sphinx.ext.napoleon'
 ]
 
+html_theme_options = {
+    'search_bar_position': 'sidebar',  # Esto coloca la caja de búsqueda en la barra lateral
+}
+
 templates_path = ['_templates']
 exclude_patterns = []
 
