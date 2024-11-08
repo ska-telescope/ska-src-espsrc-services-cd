@@ -24,6 +24,10 @@ PerfSONAR Service
 -----------------
 - Deployment :doc:`./deployments/perfsonar/manual`. 
 
+Local Monitoring Service
+------------------------
+- Deployment :doc:`./deployments/monitoring/docker`. 
+
 CANFAR Science Platform
 ----------
 - Helm deployment :doc:`./deployments/canfar/helm`. 

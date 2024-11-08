@@ -3,7 +3,7 @@
 RUCIO RSE - WebDAV
 ==================
 
-.. info ::
+.. tip::
     
     espSRC Rucio-RSE endpoint: https://spsrc14.iaa.csic.es:18027/disk
 

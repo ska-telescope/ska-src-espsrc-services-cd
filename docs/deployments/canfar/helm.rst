@@ -3,7 +3,7 @@
 CANFAR Science Platform
 =======================
 
-.. info ::
+.. tip::
     
     espSRC Rucio-RSE endpoint: https://canfar.espsrc.iaa.csic.es 
 

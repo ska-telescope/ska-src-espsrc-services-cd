@@ -3,7 +3,7 @@
 perfSONAR Service
 =================
 
-.. info ::
+.. tip::
     
     espSRC Service endpoint: https://perfsonar.espsrc.iaa.csic.es 
 

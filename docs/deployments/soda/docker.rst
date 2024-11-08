@@ -3,7 +3,7 @@
 SODA Service
 ============
 
-.. info ::
+.. tip::
     
     espSRC Rucio-RSE endpoint: https://soda.espsrc.iaa.csic.es 
 

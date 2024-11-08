@@ -3,7 +3,7 @@
 JupyterHub deployment with Helm Chart
 =====================================
 
-.. info ::
+.. tip::
     
     espSRC JupyteHub service endpoint: https://notebook.espsrc.iaa.csic.es 
 
