@@ -74,7 +74,6 @@ Previously to do this step you must have created the CephFS storage with the fol
 
 ``openstack share create --share-type cephfstype --name k8s-shared cephfs 20480``
 
-```
 
 StorageClass
 ^^^^^^^^^^^^
