@@ -1,10 +1,7 @@
 .. _storm-webdav:
 
-
 RUCIO RSE - WebDAV
 ==================
-
-
 
 Prerequisites
 -------------

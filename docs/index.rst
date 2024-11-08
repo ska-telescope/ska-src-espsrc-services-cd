@@ -16,6 +16,11 @@ JupyterHub
 ----------
 - Helm deployment :doc:`./deployments/jupyterhub/helm`. 
 
+SODA Service
+------------
+- Docker deployment :doc:`./deployments/soda/docker`. 
+
 CANFAR Science Platform
 ----------
 - Helm deployment :doc:`./deployments/canfar/helm`. 
+
