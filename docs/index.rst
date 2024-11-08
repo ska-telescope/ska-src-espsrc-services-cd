@@ -10,11 +10,12 @@ espSRC Services Deployment
 
 espSRC Rucio RSE
 ----------------
-
 - WebDav deployment :doc:`./deployments/rse/manual`. 
 
 JupyterHub
 ----------
 - Helm deployment :doc:`./deployments/jupyterhub/helm`. 
 
-
+CANFAR Science Platform
+----------
+- Helm deployment :doc:`./deployments/canfar/helm`. 
