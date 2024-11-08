@@ -3,6 +3,10 @@
 JupyterHub deployment with Helm Chart
 =====================================
 
+.. note ::
+    Kubernetes Server Version: v1.30.6+k3s1
+    JupyterHub Version: 3.1.0
+
 JupyterHub is a powerful multi-user platform that provides Jupyter notebook environments 
 to various users, ideal for education, research, and collaborative projects. 
 Deploying JupyterHub on a Kubernetes cluster enables seamless scalability and centralized 
@@ -189,21 +193,117 @@ To configure the service we need a ``values.yaml`` file to set the variables and
         kubespawner_override:
             image: jupyter/datascience-notebook:latest
 
-Change the next: 
+Change the next:
 
 -  ``"<SECRET TOKEN>"`` is a 32 bytes HEX string
--  ``"<NODE PORT>"`` is the port to connect the service locally within the cluster. 
+-  ``"<NODE PORT>"`` is the port to connect the service locally within the cluster. See more information on HAproxy for the espSRC. 
 -  ``"<CLIENT ID>"`` is the ID of the SKAO-IAM client created.
 -  ``"<CLIENT SECRET>"`` id the secret/password of the SKAO-IAM client created.
 
+.. note ::
+
+    espSRC services exposed to internet are within a load balancer provided by HAproxy. 
+    This HAproxy instance caputure the domain and redirect to the specific kubernetes application/service.
 
 Deployment Steps
 ----------------
+
+Once the file has been generated, it will be necessary to proceed with the installation 
+of the helm:
+
+.. code-block:: bash
+
+    helm upgrade --cleanup-on-fail \ 
+        --install jhub-release-gitops jupyterhub/jupyterhub \
+        --version 3.1.0    --namespace jhub-srcnet \
+        --create-namespace \   
+        --values values.yaml
+
+.. important ::
+
+    JupyterHub versions can be specified by including the version when installing 
+    the particular Helm Chart. In our case the version is 3.1.0. To install another
+    version you can check here: https://hub.jupyter.org/helm-chart/
 
 
 
 Post-Deployment Verification
 ----------------------------
 
+To validate the installation, the following is done:
+
+.. code-block:: bash
+    
+    $ kubectl get pods -A
+
+    jhub-srcnet   continuous-image-puller-978m5             1/1     Running     0             22h
+    jhub-srcnet   continuous-image-puller-kw4pz             1/1     Running     0             22h
+    jhub-srcnet   continuous-image-puller-xfl5b             1/1     Running     0             22h
+    jhub-srcnet   hub-d8965cbb7-bcxb6                       1/1     Running     0             22h
+    jhub-srcnet   proxy-6789588899-rhnw4                    1/1     Running     0             16h
+    jhub-srcnet   user-scheduler-7bf8b47d4d-jxsgh           1/1     Running     0             16h
+    jhub-srcnet   user-scheduler-7bf8b47d4d-rp5p8           1/1     Running     0             22h
+
+All these pods must be available and working.
+
+Then we have to check if the service is exposed externally through the HAproxy:
+
+.. code-block:: bash
+
+    frontend https-in
+    ...
+    acl host_notebook hdr(host) -i notebook.espsrc.iaa.csic.es
+    ...
+    use_backend notebookbackend if host_notebook
+
+    backend notebookbackend
+        mode http
+        balance roundrobin
+    
+        server k8s-master-0 192.168.250.83:31090 check
+        server k8s-workers-1  192.168.250.195:31090 check
+        server k8s-workers-2 192.168.250.214:31090 check
+        ...
+
+Apply these changes to HAproxy and restart it.
+
+Then access to the service and login: https://notebook.espsrc.iaa.csic.es
+
 Troubleshooting
 ---------------
+
+This section details some of the most common problems encountered in 
+deployment and integration.
+
+User cannot log in
+^^^^^^^^^^^^^^^^^^
+
+The user cannot access his/her SKAO-IAM account. This is usually due to the 
+configuration of the client and in particular to the paths and URLs of the 
+redirect that is created in the SKAO-IAM client. To solve it, make sure you use the 
+same client-id and secret-id of the client you have created. Also check that the 
+URLs of the callback redirects match those indicated in the 
+client: ``oauth_callback_url: https://notebook.espsrc.iaa.csic.es/hub/oauth_callback``. 
+Finally, check that you have specified the scopes required to use this service:
+``openid, profile, email, offline_access``.
+
+
+The session cannot be created
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+This can be due to multiple causes, but the main one is related to the storage 
+that has been indicated as storageclass in the values.yaml definition file. 
+This must match some SC you have in Kubernetes. To validate this situation use the following:
+
+Check the status of the PVCs and if any of them are in Pending state:
+
+.. code-block:: bash
+
+    $ kubectl get pvc -A
+
+If there is one in this status, it is because it has not been possible to assign a 
+PV for that Claim, because there must be an error in it. To check it, use the following:
+
+
+.. code-block:: bash
+    
+    $ kubectl describe pvc claim-xxxxx -n jhub-srcnet
