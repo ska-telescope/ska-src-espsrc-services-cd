@@ -19,7 +19,7 @@ To create a CephFS with 20TB:
 
 .. code-block:: bash
 
-    ``openstack share create --share-type cephfstype --name rucio-shared cephfs 20480``
+    openstack share create --share-type cephfstype --name rucio-shared cephfs 20480
 
 
 Then, the configuration and mounting of this directory is automatic at node instantiation time. 
@@ -86,7 +86,10 @@ Create a ```storm-webdav``` properties files within ```/etc/storm/webdav/sa.d/st
 
 
 .. note::
-   At this point, you should have your storage backend set up, connected and ready for use, having a folder that will be used to store the Rucio RSE data. In this installation we are using ```/storage/dteam/disk``` as data folder.
+
+   At this point, you should have your storage backend set up, connected and ready for use, 
+   having a folder that will be used to store the Rucio RSE data. In this installation we 
+   are using ```/storage/dteam/disk``` as data folder.
 
 
 Modify the next configuration variables in this file ```/etc/storm/webdav/sa.d/storm-webdav-sa.properties```:
@@ -105,7 +108,8 @@ Modify the next configuration variables in this file ```/etc/storm/webdav/sa.d/s
     orgsGrantWritePermission=true
     wlcgScopeAuthzEnabled=true
 
-The next example use ```/storage/dteam/disk``` as datafolder and ```/disk``` as startup folder for the data. Then the IAM A&A service used here is ```https://iam-escape.cloud.cnaf.infn.it/```.
+The next example use ```/storage/dteam/disk``` as datafolder and ```/disk``` as startup folder for the data. 
+Then the IAM A&A service used here is ```https://iam-escape.cloud.cnaf.infn.it/```.
 
 .. code-block:: bash
     
@@ -127,7 +131,8 @@ Then, lets configure the IAM A&A client for ```storm-webdav```. To do it, edit t
     
     sudo vi /etc/storm/webdav/config/application.ym
 
-Include the next, changing ```client-name```, ```client-id``` and ```client-secret``` with the client your previously created in the preliminary step. Maintaing the ```issuer``` and ```issuer-uri``` as follows:
+Include the next, changing ```client-name```, ```client-id``` and ```client-secret``` with the client 
+your previously created in the preliminary step. Maintaing the ```issuer``` and ```issuer-uri``` as follows:
 
 .. code-block:: bash
 
