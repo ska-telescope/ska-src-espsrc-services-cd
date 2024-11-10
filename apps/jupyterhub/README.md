@@ -74,8 +74,6 @@ And finally associate the role (``auth/kubernetes/role/jupyterhub``) to the poli
 vault write auth/kubernetes/role/jupyterhub bound_service_account_names=jupyterhub  bound_service_account_namespaces=jupyterhub-test policies=jupyter-policy ttl=24h
 ```
 
-
-
 ### Validations
 
 Vault level:
