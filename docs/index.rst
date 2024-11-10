@@ -12,13 +12,11 @@ espSRC and their configuration and instantiation details.
 
    self
 
-
 .. toctree::
   :caption: Rucio RSE
   :maxdepth: 2
   :hidden:
 
-  
   deployments/rse/manual
   deployments/rse/helm
  
