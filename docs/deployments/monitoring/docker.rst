@@ -1,4 +1,4 @@
-.. _localmonitoring :
+.. _localmonitoring-docker :
 
 Local Monitoring Service
 ========================

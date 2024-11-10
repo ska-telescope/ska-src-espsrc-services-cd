@@ -1,4 +1,4 @@
-.. _perfsonar :
+.. _perfsonar-manual :
 
 perfSONAR Service
 =================

@@ -1,4 +1,4 @@
-.. _soda:
+.. _soda-docker:
 
 SODA Service
 ============

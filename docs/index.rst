@@ -12,7 +12,12 @@ espSRC Services Deployment
  
 espSRC Rucio RSE
 ----------------
-- WebDav deployment :doc:`./deployments/rse/manual`. 
+
+WebDav deployment :doc:`./deployments/rse/manual` 
+
+.. note::
+
+  EndPoint: https://spsrc14.iaa.csic.es:18027/disk
 
 .. toctree::
   :caption: Jupyter
@@ -22,25 +27,29 @@ espSRC Rucio RSE
  
 JupyterHub
 ----------
-- Helm deployment :doc:`./deployments/jupyterhub/helm`. 
+Helm deployment :doc:`./deployments/jupyterhub/helm`
 
 SODA Service
 ------------
-- Docker deployment :doc:`./deployments/soda/docker`. 
+Docker deployment :doc:`./deployments/soda/docker`. 
 
 GateKeeper Service
 ------------
-- Helm deployment :doc:`./deployments/gatekeeper/helm`. 
+Helm deployment :doc:`./deployments/gatekeeper/helm`. 
 
 PerfSONAR Service
 -----------------
-- Deployment :doc:`./deployments/perfsonar/manual`. 
+Deployment :doc:`./deployments/perfsonar/manual`. 
 
 Local Monitoring Service
 ------------------------
-- Deployment :doc:`./deployments/monitoring/docker`. 
+Deployment :doc:`./deployments/monitoring/docker`. 
+
+PrepareData Service
+-------------------
+Deployment :doc:`./deployments/preparedata/docker`. 
 
 CANFAR Science Platform
 ----------
-- Helm deployment :doc:`./deployments/canfar/helm`. 
+Helm deployment :doc:`./deployments/canfar/helm`. 
 
