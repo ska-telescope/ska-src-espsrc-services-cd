@@ -5,10 +5,19 @@ espSRC Services Deployment
 
 
 .. toctree::
+   :hidden:
+
+   self
+
+
+
+.. toctree::
   :caption: Rucio RSE
-  :maxdepth: 1
+  :maxdepth: 2
+  :hidden:
+
   
-  deployment/rse/manual
+  deployments/rse/manual
  
 espSRC Rucio RSE
 ----------------
@@ -21,9 +30,10 @@ WebDav deployment :doc:`./deployments/rse/manual`
 
 .. toctree::
   :caption: Jupyter
-  :maxdepth: 1
+  :maxdepth: 2
+  :hidden:
   
-  deployment/jupyter/helm
+  deployments/jupyter/helm
  
 JupyterHub
 ----------
