@@ -23,7 +23,7 @@ espSRC Rucio RSE
 ----------------
 
 .. image:: _static/rse.png
-  :width: 750
+  :width: 780
   :alt: RSE header image
 
 
@@ -32,8 +32,8 @@ The RSE deployment of the espSRC consists of a VM that mounts to a CephFS-based 
 The implementation used for the RSE within the espSRC is based on WebDav, specifically the StoRM-WebDav setup (manual and helm [on kubernetes]).
 Currently the service is connected through a proxy that redirects requests from users to the service itself.
 
-- StoRM-WebDav deployment - Manual :doc:`./deployments/rse/manual` , versión of StoRM WebDav: 1.4
-- StoRM-WebDav deployment - Helm :doc:`./deployments/rse/helm` , versión of StoRM WebDav: 1.6
+- StoRM-WebDav deployment - Manual :doc:`./deployments/rse/manual` , version of StoRM WebDav: 1.4
+- StoRM-WebDav deployment - Helm :doc:`./deployments/rse/helm` , version of StoRM WebDav: 1.4
 - Installation reproducibility: |:white_check_mark:| Manual and |:warning:| Helm (in progress)
 - Storage size: **10TB**
 - Integrations: 
@@ -43,7 +43,7 @@ Currently the service is connected through a proxy that redirects requests from 
    | |:white_check_mark:| Functional tests
    | |:white_check_mark:| SKAO Rucio Monitoring system
 
-Endpoints for this service: 
+**Endpoints for this service:**
 
 .. note::
 
@@ -61,19 +61,31 @@ Endpoints for this service:
 JupyterHub
 ----------
 
-JupyterHub provides interactive and collaborative notebook environment. 
+.. image:: _static/jupyter.png
+  :width: 780
+  :alt: Jupyter RSE header image
 
-- Indicar:
-  - Instalado en Kubernets : en prod y Dev.
-  - Integraciones: IAM y RSE (para Dev)
-  - Esquema de Servicios graficamente.
-  - Pre-configuración de HAproxy 
+JupyterHub provides an interactive and collaborative notebook environment for doing science in a very dynamic 
+and visual way. It offers a complete working environment that supports any customisation of programming languages, 
+access to a console and scalable computing power. The espSRC is deployed within a Kubernetes cluster (one for production 
+and one for development) and a notebooks service with JupyterHub. Access to this service is provided through a HAProxy 
+load balancing service. The storage provisioning model of the user accounts is carried out through a StorageClass with a CephFS backend. 
+For the production notebooks service, the Rucio Storage Element of the espSRC storage has not been set up, but for the development cluster, 
+the RSE has been set up for testing purposes. 
 
-Helm deployment :doc:`./deployments/jupyterhub/helm`
+- StoRM-WebDav deployment - Helm :doc:`./deployments/jupyter/helm` , version of JupyterHub: 3.1.0
+- StoRM-WebDav deployment - via GitOps :doc:`./deployments/jupyter/gitops` , version of StoRM WebDav: 1.4
+- Installation reproducibility: |:white_check_mark:| Helm and |:white_check_mark:| GitOps 
+- Storage size for users: **1TB** (extendable)
+- Integrations: 
+   | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
+   | |:white_check_mark:| Site Capabilities
+   | |:white_check_mark:| Access/Mounted espSRC RSE for the development cluster (https://dev-notebook.espsrc.iaa.csic.es)
 
 .. note::
 
-  EndPoint: https://notebook.espsrc.iaa.csic.es
+  | EndPoint: https://notebook.espsrc.iaa.csic.es
+  | EndPoint development: https://dev-notebook.espsrc.iaa.csic.es
 
 
 SODA Service
