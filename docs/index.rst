@@ -3,6 +3,9 @@
 espSRC Services Deployment
 ==========================
 
+Welcome to the espSRC services documentation for SRCNet v0.1. 
+In this document you will find all the services deployed within 
+espSRC and their configuration and instantiation details.
 
 .. toctree::
    :hidden:
@@ -26,8 +29,6 @@ espSRC Rucio RSE
   :width: 780
   :alt: RSE header image
 
-
-
 The espSRC is integrated as a RSE (Rucio Storage Element) within the SKAO Rucio data lake. 
 The RSE deployment of the espSRC consists of a VM that mounts to a CephFS-based mass storage space. 
 The implementation used for the RSE within the espSRC is based on WebDav, specifically the StoRM-WebDav setup (manual and helm [on kubernetes]).
@@ -43,11 +44,11 @@ Currently the service is connected through a proxy that redirects requests from 
    | |:white_check_mark:| Site Capabilities 
    | |:white_check_mark:| Functional tests
    | |:white_check_mark:| SKAO Rucio Monitoring system
+- Support: @Jesús Sánchez and @Manu Parra
 
 **Endpoints for this service:**
 
 .. note::
-
   | EndPoint 1: https://spsrc14.iaa.csic.es:18027/disk
   | (|:warning:|) Endpoint 2: https://rucio.espsrc.iaa.csic.es - in progress
 
@@ -84,15 +85,13 @@ the RSE has been set up for testing purposes.
    | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
    | |:white_check_mark:| Site Capabilities
    | |:white_check_mark:| Access/Mounted espSRC RSE for the development cluster (https://dev-notebook.espsrc.iaa.csic.es)
+- Support: @Manu Parra
 
 **Endpoints for this service:**
 
 .. note::
-
   | EndPoint: https://notebook.espsrc.iaa.csic.es
   | EndPoint development: https://dev-notebook.espsrc.iaa.csic.es
-
-
 
 
 .. toctree::
@@ -106,6 +105,11 @@ the RSE has been set up for testing purposes.
 
 SODA Service
 ------------
+
+.. image:: _static/soda.png
+  :width: 780
+  :alt: SODA service header image
+
 
 Server-side Operations for Data Access (SODA) is a low-level data access capability and a server side data processing 
 that can act upon the data files, performing various kinds of operations: filtering/subsection, transformations, pixel 
@@ -122,15 +126,15 @@ that is and the load balancing service is in charge of exposing the service exte
    | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
    | |:white_check_mark:| Site Capabilities
    | |:white_check_mark:| Access/Mounted espSRC RSE. 
+- Support: @Manu Parra
 
 **Endpoint for this service:**
 
 .. note::
-
   | EndPoint: https://soda.espsrc.iaa.csic.es (currently exposed externally)
 
 .. GateKeeper documentation start point 
-  --------------------------------------------
+   --------------------------------------------
 
 .. toctree::
   :caption: GateKeeper
@@ -140,11 +144,33 @@ that is and the load balancing service is in charge of exposing the service exte
   deployments/gatekeeper/helm
 
 GateKeeper Service
-------------
-Helm deployment :doc:`./deployments/gatekeeper/helm`. 
+------------------
+
+.. image:: _static/gatekeeper.png
+  :width: 780
+  :alt: GateKeeper header image
+
+GateKeeper is the SRCNet service that is installed locally in all SRCs and is 
+responsible for providing other local SRC services with authentication and 
+authorisation mechanisms at the outermost layer of the SRC, thus delegating to 
+the SRC the functionalities for permission control and DataManagement API management for the rest of the 
+services within the internal/local SRC. For this service in the espSRC, a Helm-based 
+installation on the Kubernetes cluster has been used. 
+The service is exposed externally to the internet via the HAProxy load balancer.
+
+- GateKeeper - Helm :doc:`./deployments/gatekeeper/helm`
+- Installation reproducibility: |:white_check_mark:| Helm and |:warning:| GitOps (in progress)
+- Integrations: 
+   | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
+   | |:white_check_mark:| Site Capabilities
+- Support: @Manu Parra
+
+.. note::
+  | EndPoint: https://gatekeeper.espsrc.iaa.csic.es (in progress)
+
 
 .. PerfSONAR documentation start point 
-  --------------------------------------------
+   --------------------------------------------
 
 .. toctree::
   :caption: PerfSONAR
@@ -155,7 +181,33 @@ Helm deployment :doc:`./deployments/gatekeeper/helm`.
 
 PerfSONAR Service
 -----------------
-Deployment :doc:`./deployments/perfsonar/manual`. 
+
+.. image:: _static/perfsonar.png
+  :width: 780
+  :alt: PerfSONAR header image
+
+The monitoring of the SRCNet service infrastructure involves monitoring the 
+services exposed both locally and externally. As a fundamental part of monitoring, 
+it is necessary to use tools that allow measuring the state of connectivity between 
+the different SRCs at network level, bandwidth, etc. For this purpose, the perfSONAR 
+tool has been installed in the espSRC, through which different network tests are 
+executed from another of the nodes between all the other SRCs, in order to know 
+the general state of the SRC network. This deployment has been done using a VM 
+dedicated entirely for this use, it has a direct connection to the network of 
+our institute and is not behind HAproxy. It has all the input/output ports required 
+for the correct functioning of perfSONAR enabled. 
+
+
+- PerfSONAR - Manual :doc:`./deployments/perfsonar/manual`
+- Installation reproducibility: |:white_check_mark:| Manual
+- Integrations: 
+   | |:white_check_mark:| Site Capabilities
+   | |:white_check_mark:| Purple team dashboard
+- Support: @Jesús Sánchez 
+
+.. note::
+  | EndPoint: https://spsrc32.espsrc.iaa.csic.es  
+  | EndPoint: https://perfsonar.espsrc.iaa.csic.es (Grafana local interface)
 
 
 .. Local Monitoring documentation start point 
@@ -170,13 +222,80 @@ Deployment :doc:`./deployments/perfsonar/manual`.
 
 Local Monitoring Service
 ------------------------
-Deployment :doc:`./deployments/monitoring/docker`. 
+
+.. image:: _static/monitor.png
+  :width: 780
+  :alt: Monitoring header image
+
+The monitoring of the SRCNet service infrastructure involves the 
+supervision of the services exposed both locally and externally. 
+The installation of service monitoring allows at a glance to review 
+the overall status of all functionalities available on the espSRC. 
+For this purpose, Prometheus has been deployed, with BlackBox Exporter 
+together with Grafana inside a separate VM, to manage the monitoring 
+and metrics of the status of the services deployed in espSRC. In addition 
+to the status of the services, the status of all the VMs and Clusters of 
+espSRC is monitored. Access to these monitoring services for visualisation 
+is integrated with SKAO-IAM. 
+
+- Monitoring - Docker :doc:`./deployments/monitoring/docker`
+- Installation reproducibility: |:white_check_mark:| Docker
+- Integrations: 
+   | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
+   | |:white_check_mark:| Site Capabilities
+   | |:white_check_mark:| SRCNet Global Monitoring
+- Support: @Jesús Sánchez 
+.. note::
+  | EndPoint: https://monitor.espsrc.iaa.csic.es
+
+
+.. prepareData documentation start point 
+  --------------------------------------------
+
+.. toctree::
+  :caption: PrepareData
+  :maxdepth: 2
+  :hidden:
+  
+  deployments/preparedata/docker
 
 PrepareData Service
 -------------------
-Deployment :doc:`./deployments/preparedata/docker`. 
+TBC. Deployment :doc:`./deployments/preparedata/docker`. 
+
+
+.. Documentation on CANFAR deployment start point
+  --------------------------------------------
+
+.. toctree::
+  :caption: CANFAR Science platform
+  :maxdepth: 2
+  :hidden:
+  
+  deployments/canfar/helm
 
 CANFAR Science Platform
-----------
-Helm deployment :doc:`./deployments/canfar/helm`. 
+-----------------------
 
+.. image:: _static/canfar.png
+  :width: 780
+  :alt: CANFAR header image
+
+The CANFAR science platform provides a set of components such as notebooks, 
+shells, desktops, and other containerised tools and services from a web interface 
+through which to interact. This platform is installed inside a Kubernetes cluster 
+and all its services are exposed through a load balancer with HAproxy. The production 
+version of CANFAR on the espSRC does not have access to the RSE content of the espSRC. 
+Another Kubernetes development cluster does provide CANFAR with access to the RSE 
+content of the espSRC.
+
+- CANFAR - Helm :doc:`./deployments/canfar/helm`
+- Installation reproducibility: |:white_check_mark:| Helm and |:warning:| GitOps (in progress)
+- Integrations: 
+   | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
+   | |:white_check_mark:| Site Capabilities
+- Support: @Manu Parra 
+
+.. note::
+  | EndPoint: https://canfar.espsrc.iaa.csic.es/science-portal/
+  | EndPoint: https://spsrc25.iaa.csic.es/science-portal/ (CANFAR + espSRC RSE)
