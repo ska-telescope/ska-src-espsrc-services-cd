@@ -23,8 +23,8 @@ espSRC Rucio RSE
 ----------------
 
 .. image:: _static/rse.png
-  :width: 400
-  :alt: Alternative text
+  :width: 750
+  :alt: RSE header image
 
 
 The espSRC is integrated as a RSE (Rucio Storage Element) within the SKAO Rucio data lake. 
@@ -34,14 +34,14 @@ Currently the service is connected through a proxy that redirects requests from 
 
 - StoRM-WebDav deployment - Manual :doc:`./deployments/rse/manual` , versión of StoRM WebDav: 1.4
 - StoRM-WebDav deployment - Helm :doc:`./deployments/rse/helm` , versión of StoRM WebDav: 1.6
-- Installation reproducibility: |:white_check_mark:| Manual and |:warning:| Helm
-- Storage size: 10TB
+- Installation reproducibility: |:white_check_mark:| Manual and |:warning:| Helm (in progress)
+- Storage size: **10TB**
 - Integrations: 
-  - |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
-  - |:white_check_mark:| SKAO Data lake  
-  - |:white_check_mark:| Site Capabilities 
-  - |:white_check_mark:| Functional tests
-  - |:white_check_mark:| SKAO Rucio Monitoring system
+   | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
+   | |:white_check_mark:| SKAO Data lake  
+   | |:white_check_mark:| Site Capabilities 
+   | |:white_check_mark:| Functional tests
+   | |:white_check_mark:| SKAO Rucio Monitoring system
 
 Endpoints for this service: 
 
