@@ -13,7 +13,8 @@ author = 'The espSRC Team - Instituto de Astrofísica de Andalucía.<BR>Consejo 
 
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon'
+    'sphinx.ext.napoleon',
+    'sphinxemoji.sphinxemoji'
 ]
 
 html_theme_options = {
