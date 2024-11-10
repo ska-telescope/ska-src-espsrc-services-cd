@@ -10,7 +10,6 @@ espSRC Services Deployment
    self
 
 
-
 .. toctree::
   :caption: Rucio RSE
   :maxdepth: 2
@@ -26,7 +25,8 @@ WebDav deployment :doc:`./deployments/rse/manual`
 
 .. note::
 
-  EndPoint: https://spsrc14.iaa.csic.es:18027/disk
+  | EndPoint 1: https://spsrc14.iaa.csic.es:18027/disk
+  |  Endpoint 2: https://rucio.espsrc.iaa.csic.es
 
 .. toctree::
   :caption: Jupyter
@@ -37,7 +37,21 @@ WebDav deployment :doc:`./deployments/rse/manual`
  
 JupyterHub
 ----------
+
+JupyterHub provides interactive and collaborative notebook environment. 
+
+- Indicar:
+  - Instalado en Kubernets : en prod y Dev.
+  - Integraciones: IAM y RSE (para Dev)
+  - Esquema de Servicios graficamente.
+  - Pre-configuración de HAproxy 
+
 Helm deployment :doc:`./deployments/jupyterhub/helm`
+
+.. note::
+
+  EndPoint: https://notebook.espsrc.iaa.csic.es
+
 
 SODA Service
 ------------
