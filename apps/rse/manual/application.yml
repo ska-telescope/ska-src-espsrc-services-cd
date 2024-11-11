@@ -1,0 +1,39 @@
+oauth:
+  enable-oidc: true
+  issuers:
+    - name: escape
+      issuer: https://iam-escape.cloud.cnaf.infn.it/
+    - name: ska
+      issuer: https://ska-iam.stfc.ac.uk/
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          escape:
+            issuer-uri: https://iam-escape.cloud.cnaf.infn.it/
+          ska:
+            issuer-uri: https://ska-iam.stfc.ac.uk/
+        registration:
+          escape:
+            provider: escape
+            client-name: stormwebdav-rockylinux
+            client-id: <CLIENT-ID>
+            client-secret: <CLIENT-SECRET>
+            scope:
+              - openid
+              - profile
+              - wlcg.groups
+          ska:
+            provider: ska
+            client-name: stormwebdav-ska
+            client-id:  <CLIENT-ID-SKAO>
+            client-secret: <CLIENT-SECRET-SKAO>
+            scope:
+              - openid
+              - profile
+              - wlcg.groups
+storm:
+  voms:
+    trust-store:
+      dir: ${STORM_WEBDAV_VOMS_TRUST_STORE_DIR:/etc/grid-security/certificates}

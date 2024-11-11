@@ -32,8 +32,8 @@ The RSE deployment of the espSRC consists of a VM that mounts to a CephFS-based 
 The implementation used for the RSE within the espSRC is based on WebDav, specifically the StoRM-WebDav setup (manual and helm [on kubernetes]).
 Currently the service is connected through a proxy that redirects requests from users to the service itself.
 
-- StoRM-WebDav deployment - Manual :doc:`./deployments/rse/manual` , version of StoRM WebDav: 1.4
-- StoRM-WebDav deployment - Helm :doc:`./deployments/rse/helm` , version of StoRM WebDav: 1.4
+- StoRM-WebDav deployment - Manual :doc:`./deployments/rse/manual` , version of StoRM WebDav: 1.4.2
+- StoRM-WebDav deployment - Helm :doc:`./deployments/rse/helm` , version of StoRM WebDav: 1.1.1
 - Installation reproducibility: |:white_check_mark:| Manual and |:warning:| Helm (in progress)
 - Storage size: **10TB**
 - Integrations: 
@@ -75,10 +75,10 @@ load balancing service. The storage provisioning model of the user accounts is c
 For the production notebooks service, the Rucio Storage Element of the espSRC storage has not been set up, but for the development cluster, 
 the RSE has been set up for testing purposes. 
 
-- StoRM-WebDav deployment - Helm :doc:`./deployments/jupyter/helm` , version of JupyterHub: 3.1.0
-- StoRM-WebDav deployment - via GitOps :doc:`./deployments/jupyter/gitops` , version of StoRM WebDav: 1.4
+- JupyterHub deployment - Helm :doc:`./deployments/jupyter/helm` , version: 3.1.0
+- JupyterHub deployment - via GitOps :doc:`./deployments/jupyter/gitops` , version: 3.1.0 
 - Installation reproducibility: |:white_check_mark:| Helm and |:white_check_mark:| GitOps 
-- Storage size for users: **1TB** (extendable)
+- Storage size for users: **20TB** (extendable)
 - Integrations: 
    | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
    | |:white_check_mark:| Site Capabilities

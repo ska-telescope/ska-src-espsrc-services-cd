@@ -1,0 +1,111 @@
+image:
+  repository: registry.gitlab.com/ska-telescope/src/ska-rucio-prototype/ska-src-storm-webdav
+  tag: 1.1.1
+  pullPolicy: Always
+
+deployment:
+  namespace: storm-webdav
+
+extraEnv:
+  - name: STORM_WEBDAV_HOSTNAME_0
+    value:
+  - name: STORM_WEBDAV_VOMS_TRUST_STORE_DIR
+    value: /etc/grid-security/certificates
+  - name: STORM_WEBDAV_REQUIRE_CLIENT_CERT
+    value: "false"
+
+config:
+  # refer to https://github.com/italiangrid/storm-webdav/tree/master/etc/storm-webdav/config
+  application: |- 
+    oauth: 
+      enable-oidc: true
+      issuers:
+        - name: escape
+          issuer: https://iam-escape.cloud.cnaf.infn.it/
+        - name: ska
+          issuer: https://ska-iam.stfc.ac.uk/
+    spring:
+      security:
+        oauth2:
+          client:
+            provider:
+              escape:
+                issuer-uri: https://iam-escape.cloud.cnaf.infn.it/
+              ska:
+                issuer-uri: https://ska-iam.stfc.ac.uk/
+            registration:
+              escape:
+                provider: escape
+                client-name: 
+                client-id: 
+                client-secret: 
+                scope:
+                  - openid
+                  - profile
+                  - wlcg.groups
+  certificates:
+    host:
+      crt: |-
+        # host certificate
+      key: |-
+        # host private key
+
+  # list of storage areas
+  sa:
+    # refer to https://github.com/italiangrid/storm-webdav/tree/master/etc/storm-webdav/sa.d
+    sa.properties: |-
+      # Name of the storage area
+      name=sa
+
+      # Root path for the storage area. Files will be served from this path, which must exist and
+      # must be accessible from the user that runs the storm webdav service
+      rootPath=
+
+      # Comma separated list of storage area access points.
+      accessPoints=
+
+      # Comma-separated list of VOMS VOs supported in this storage area
+      # vos=test.vo
+
+      # Comma-separated list of OAuth/OpenID Connect token issuers trusted in this storage area
+      orgs=https://iam-escape.cloud.cnaf.infn.it/,https://ska-iam.stfc.ac.uk/
+
+      # Enables read access to users authenticated with an X.509 certificate issued by
+      # a trusted CA (users without VOMS credentials).
+      # Defaults to false, which means that all users need to authenticate with a VOMS credential
+      # authenticatedReadEnabled=false
+
+      # Enables read access to anonymous users. Defaults to false.
+      anonymousReadEnabled=false
+
+      # Enables VO map files for this storage area. Defaults to true.
+      voMapEnabled=false
+
+      # VO map normally grants read-only access to storage area files. To grant
+      # write access set this flag to true. Defaults to false.
+      # voMapGrantsWriteAccess=false
+
+      # Enables read access to storage area files to users authenticated using OAuth/OIDC. Defaults to true.
+      orgsGrantReadPermission=true
+
+      # Enables write access to storage area files to users authenticated using OAuth/OIDC. Defaults to false.
+      orgsGrantWritePermission=true
+
+      # Enables scope-based authorization following the rules imposed by the WLCG JWT profile. Defaults to false.
+      #wlcgScopeAuthzEnabled=true
+
+      # Enables fine-grained authorization engine. Defaults to false.
+      #fineGrainedAuthzEnabled=true
+
+ingress:
+  host:
+  proxyBodySize: 5000m
+  proxyBuffering: "off"
+  proxyRequestBuffering: "off"
+
+persistence:
+  storageClass: 
+  existingClaim: ""
+  enabled: true
+  accessMode: ReadWriteOnce
+  size: 2500Gi

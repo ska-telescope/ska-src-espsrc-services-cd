@@ -19,7 +19,7 @@ To create a CephFS with 20TB:
 
 .. code-block:: bash
 
-    openstack share create --share-type cephfstype --name rucio-shared cephfs 20480
+    openstack share create --share-type cephfstype --name rucio-shared cephfs 10240
 
 
 Then, the configuration and mounting of this directory is automatic at node instantiation time. 
