@@ -1,6 +1,6 @@
 .. _storm-webdav:
 
-RUCIO RSE - WebDAV
+Rucio RSE - WebDAV
 ==================
 
 .. tip::
@@ -15,7 +15,7 @@ Configure your IAM A&A account and create a IAM client following the next steps:
 Then it is necessary to prepare a storage where Rucio will place the files and replicas assigned to espSRC. 
 For this, it is necessary to connect a storage unit to the node where the WebDav service is installed.  
 
-To create a CephFS with 20TB:
+To create a CephFS with 10TB:
 
 .. code-block:: bash
 
