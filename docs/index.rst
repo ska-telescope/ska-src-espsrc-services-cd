@@ -126,7 +126,7 @@ within the SRC and will not be exposed like others. Additional external services
 through e.g. the GateKeeper service (see description and installation). This deployment is currently running on a VM 
 that is and the load balancing service is in charge of exposing the service externally/locally. 
 
-- VisIVO SODA - Docker :doc:`./deployments/soda/docker` , version of VisIVO Soda Server: 1.6.0
+- VisIVO SODA - Docker :doc:`./deployments/soda/docker` , version of VisIVO Soda Server: 1.7.0
 - VisIVO SODA - Helm :doc:`./deployments/soda/helm` , version of VisIVO Soda Server: 1.7.0
 - Installation reproducibility: |:white_check_mark:| Docker and |:warning:| Helm (in progress)
 - Storage size: Same of the espSRC RSE (10TB)
@@ -139,7 +139,8 @@ that is and the load balancing service is in charge of exposing the service exte
 **Endpoint for this service:**
 
 .. note::
-  | EndPoint: https://soda.espsrc.iaa.csic.es (currently exposed externally)
+  | EndPoint: https://soda.espsrc.iaa.csic.es/ska/datasets/soda (currently exposed externally)
+  | EndPoint capabilities: https://soda.espsrc.iaa.csic.es/ska/datasets/availability (currently exposed externally)
 
 .. GateKeeper documentation start point 
    --------------------------------------------
@@ -185,7 +186,7 @@ The service is exposed externally to the internet via the HAProxy load balancer.
   :maxdepth: 2
   :hidden:
   
-  deployments/perfSONAR/manual
+  deployments/perfsonar/manual
 
 PerfSONAR Service
 -----------------
