@@ -1,7 +1,7 @@
 .. _perfsonar-manual :
 
-perfSONAR Service
-=================
+perfSONAR - Manual
+==================
 
 .. tip::
     

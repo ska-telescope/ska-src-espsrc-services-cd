@@ -1,6 +1,6 @@
 .. _jupyterlab-helm: 
 
-JupyterHub deployment with Helm Chart
+JupyterHub - Helm Chart
 =====================================
 
 .. tip::

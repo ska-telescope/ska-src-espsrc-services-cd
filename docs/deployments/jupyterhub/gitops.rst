@@ -1,6 +1,6 @@
 .. _jupyterlab-gitops: 
 
-JupyterHub deployment with GitOps
+JupyterHub - GitOps
 =================================
 
 .. tip::

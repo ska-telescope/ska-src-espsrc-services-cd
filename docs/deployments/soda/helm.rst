@@ -1,6 +1,6 @@
 .. _soda-helm:
 
-SODA Service with Helm
+SODA - Helm
 ======================
 
 This documentation is in progress.

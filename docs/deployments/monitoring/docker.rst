@@ -1,6 +1,6 @@
 .. _localmonitoring-docker :
 
-Local Monitoring Service
+Monitoring - Docker
 ========================
 
 .. tip::

@@ -1,7 +1,7 @@
 .. _canfar-helm: 
 
-CANFAR Science Platform
-=======================
+CANFAR - Helm
+=============
 
 .. tip::
     

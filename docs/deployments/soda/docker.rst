@@ -1,7 +1,7 @@
 .. _soda-docker:
 
-SODA Service
-============
+SODA - Docker
+=============
 
 .. tip::
     
