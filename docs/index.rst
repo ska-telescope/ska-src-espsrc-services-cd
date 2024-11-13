@@ -66,8 +66,8 @@ Currently the service is connected through a proxy that redirects requests from 
   :maxdepth: 2
   :hidden:
   
-  deployments/jupyter/helm
-  deployments/jupyter/gitops
+  deployments/jupyterhub/helm
+  deployments/jupyterhub/gitops
  
 JupyterHub
 ----------
