@@ -49,9 +49,9 @@ Currently the service is connected through a proxy that redirects requests from 
 - Integrations: 
    | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
    | |:white_check_mark:| SKAO Data lake  
-   | |:white_check_mark:| Site Capabilities 
+   | |:white_check_mark:| Site Capabilities - `ESPSRC <https://site-capabilities.srcdev.skao.int/api/v1/www/docs/oper#get-/sites/-site->`_
    | |:white_check_mark:| Functional tests
-   | |:white_check_mark:| SKAO Rucio Monitoring system
+   | |:white_check_mark:| SKAO Rucio Monitoring system - `monit.srcdev.skao.int <https://monit.srcdev.skao.int/grafana/d/BfW0IQQVk/rucio-events?orgId=1>`_
 - Support: @Jesús Sánchez and @Manu Parra
 
 **Endpoints for this service:**
@@ -91,7 +91,7 @@ the RSE has been set up for testing purposes.
 - Storage size for users: **20TB** (extendable)
 - Integrations: 
    | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
-   | |:white_check_mark:| Site Capabilities
+   | |:white_check_mark:| Site Capabilities - `ESPSRC <https://site-capabilities.srcdev.skao.int/api/v1/www/docs/oper#get-/sites/-site->`_
    | |:white_check_mark:| Access/Mounted espSRC RSE for the development cluster (https://dev-notebook.espsrc.iaa.csic.es)
 - Support: @Manu Parra
 
@@ -132,7 +132,7 @@ that is and the load balancing service is in charge of exposing the service exte
 - Storage size: Same of the espSRC RSE (10TB)
 - Integrations: 
    | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
-   | |:white_check_mark:| Site Capabilities
+   | |:white_check_mark:| Site Capabilities - `ESPSRC <https://site-capabilities.srcdev.skao.int/api/v1/www/docs/oper#get-/sites/-site->`_
    | |:white_check_mark:| Access/Mounted espSRC RSE. 
 - Support: @Manu Parra
 
@@ -171,7 +171,7 @@ The service is exposed externally to the internet via the HAProxy load balancer.
 - Installation reproducibility: |:white_check_mark:| Helm and |:warning:| GitOps (in progress)
 - Integrations: 
    | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
-   | |:white_check_mark:| Site Capabilities
+   | |:white_check_mark:| Site Capabilities - `ESPSRC <https://site-capabilities.srcdev.skao.int/api/v1/www/docs/oper#get-/sites/-site->`_
 - Support: @Manu Parra
 
 .. note::
@@ -210,8 +210,8 @@ for the correct functioning of perfSONAR enabled.
 - PerfSONAR - Manual :doc:`./deployments/perfsonar/manual`
 - Installation reproducibility: |:white_check_mark:| Manual
 - Integrations: 
-   | |:white_check_mark:| Site Capabilities
-   | |:white_check_mark:| Purple team dashboard
+   | |:white_check_mark:| Site Capabilities `ESPSRC <https://site-capabilities.srcdev.skao.int/api/v1/www/docs/oper#get-/sites/-site->`_
+   | |:white_check_mark:| Global PerfSONAR Dashboard - `Grafana-perfSONAR <https://perfsonar01.jc.rl.ac.uk/grafana/d/c81bcc51-9380-5365-a398-b2e0fc9df648/custom-grafana-dashboard?orgId=1>`_
 - Support: @Jesús Sánchez 
 
 .. note::
@@ -251,8 +251,9 @@ is integrated with SKAO-IAM.
 - Installation reproducibility: |:white_check_mark:| Docker
 - Integrations: 
    | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
-   | |:white_check_mark:| Site Capabilities
-   | |:white_check_mark:| SRCNet Global Monitoring
+   | |:white_check_mark:| Site Capabilities - `ESPSRC <https://site-capabilities.srcdev.skao.int/api/v1/www/docs/oper#get-/sites/-site->`_
+   | |:white_check_mark:| SRCNet Global Monitoring - `Platform <https://grafana.dev.skach.org/d/site_specific_services/central-monitoring-srcnet-site-services?orgId=1&from=now-5m&to=now&var-sitename=ESPSRC&var-environment=prod>`_
+   | |:white_check_mark:| Local Monitoring - `Platform <https://monitor.espsrc.iaa.csic.es>`_
 - Support: @Jesús Sánchez 
 .. note::
   | EndPoint: https://monitor.espsrc.iaa.csic.es
@@ -270,7 +271,8 @@ is integrated with SKAO-IAM.
 
 PrepareData Service
 -------------------
-TBC. Deployment :doc:`./deployments/preparedata/docker`. 
+
+TBC - Deployment :doc:`./deployments/preparedata/docker`. 
 
 
 .. Documentation on CANFAR deployment start point
@@ -302,9 +304,9 @@ content of the espSRC.
 - Installation reproducibility: |:white_check_mark:| Helm and |:warning:| GitOps (in progress)
 - Integrations: 
    | |:white_check_mark:| SKAO-IAM - `Client SKAO-IAM <https://ska-iam.stfc.ac.uk/dashboard#!/home/clients>`_
-   | |:white_check_mark:| Site Capabilities
-- Support: @Manu Parra 
+   | |:white_check_mark:| Site Capabilities - `ESPSRC <https://site-capabilities.srcdev.skao.int/api/v1/www/docs/oper#get-/sites/-site->`_
+   | |:white_check_mark:| GMS - Registry
+- Support: @Manu Parra and @Jesus Sánchez
 
 .. note::
   | EndPoint: https://canfar.espsrc.iaa.csic.es/science-portal/
-  | EndPoint: https://spsrc25.iaa.csic.es/science-portal/ (CANFAR + espSRC RSE)

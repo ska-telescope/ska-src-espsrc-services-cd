@@ -5,7 +5,8 @@ SODA - Docker
 
 .. tip::
     
-    espSRC Rucio-RSE endpoint: https://soda.espsrc.iaa.csic.es 
+    | EndPoint: https://soda.espsrc.iaa.csic.es/ska/datasets/soda (currently exposed externally)
+    | EndPoint capabilities: https://soda.espsrc.iaa.csic.es/ska/datasets/availability (currently exposed externally)
 
 The SODA (Service for Data Access) service is a standardized protocol designed to 
 facilitate data retrieval and management in the field of astronomy. Based on the 
