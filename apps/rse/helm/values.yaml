@@ -97,11 +97,6 @@ config:
       # Enables fine-grained authorization engine. Defaults to false.
       #fineGrainedAuthzEnabled=true
 
-ingress:
-  host:
-  proxyBodySize: 5000m
-  proxyBuffering: "off"
-  proxyRequestBuffering: "off"
 
 persistence:
   storageClass: 
