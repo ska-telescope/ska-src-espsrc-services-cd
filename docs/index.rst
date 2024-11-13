@@ -5,12 +5,20 @@ espSRC Services Deployment
 
 Welcome to the espSRC services documentation for SRCNet v0.1. 
 In this document you will find all the services deployed within 
-espSRC and their configuration and instantiation details.
+espSRC and their configuration and instantiation details based on 
+GitOps, Helm, Docker of manual.
 
 .. toctree::
    :hidden:
 
    self
+
+.. toctree::
+  :caption: GitOps deployment
+  :maxdepth: 2
+  :hidden:
+
+  deployments/gitops/gitops
 
 .. toctree::
   :caption: Rucio RSE
@@ -20,6 +28,8 @@ espSRC and their configuration and instantiation details.
   deployments/rse/manual
   deployments/rse/helm
  
+
+
 espSRC Rucio RSE
 ----------------
 

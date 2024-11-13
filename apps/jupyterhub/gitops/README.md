@@ -14,7 +14,6 @@ flux suspend source helm jupyterhub-repository
 flux suspend source chart jupyterhub-test-jupyterhub
 ```
 
-
 ## Activate JupyterHub Policy for Vault
 
 Connect to the vault pods:
@@ -97,3 +96,4 @@ CLIENT-ID:  36 bytes
 CLIENT-SECRET: 128 bytes
 TOKEN: 32 byres
 ```
+
