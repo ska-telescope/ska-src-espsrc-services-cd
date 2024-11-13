@@ -36,7 +36,6 @@ Ensure you have a running Kubernetes cluster with at least the next versions:
     Kustomize Version: v5.0.4-0.20230601165947-6ce0bf390ce3
     Server Version: v1.30.6+k3s1
 
-
 Helm
 ^^^^ 
 
@@ -113,3 +112,177 @@ Change the path with ``paths":["/mnt/k8s-shared/"]`` where our CephFS folder is 
                 ]
             }
     ...
+
+
+
+Kustomization files
+-------------------
+
+All the files for this FluxCD kustomization are here:
+
+.. code-block:: bash
+    
+    ~/apps/jupyterhub/gitops
+
+Clone this repo to modify/updgrade them and FluxCD will do the rest. See the structure for this JupyterHub in the following subsection.
+
+Structure of the deployment for JupyterHub
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. code-block:: bash
+
+    kustomization.yaml
+      - service/
+        - kustomisation.yaml # Index for files to ve included within the kustomisation
+        - ServiceAccount.yaml # Creates the Service Account for this JupyterHub deployment.
+        - SecretStore.yaml # Point to the Vault Secret Store and the Role for JupyterHub.
+        - ExternalSecret.yaml # Secrets to be used for the JupyterHub deployment.
+        - helmrepository.yaml # Repository of the JupyterChart.
+        - helmrelease.yaml # Repository of the Helm Chart release and version.
+        - values.yaml # Values files that will be injected combined with ExternalSecret secrets.
+
+Secrets creation
+^^^^^^^^^^^^^^^^
+
+Add the next:
+
+.. code-block:: bash
+    
+    kubectl exec -it vault-0 -n vault -- /bin/sh
+
+    vi jupyter_policy.hcl
+    ## Add the next:
+
+    path "*" {
+        capabilities = ["read"]
+    }
+
+Then apply this policy:
+
+.. code-block:: bash
+    
+    vault policy write jupyter-policy jupyter_policy.hcl
+
+Add the role: 
+
+.. code-block:: bash
+    kubectl exec -it vault-0 -n vault -- /bin/sh
+
+    vault write auth/kubernetes/role/jupyterhub bound_service_account_names=jupyterhub  bound_service_account_namespaces=jupyterhub-test policies=jupyter-policy ttl=24h
+
+Create the next secrets in Vault:
+
+.. code-block:: bash
+
+    kubectl exec -it vault-0 -n vault -- /bin/sh
+
+    vault kv put app/jupyter client-secret="<client-secret here>" \ 
+        client-id="<client-id here>" token="<token here>"
+
+
+Secrets injection
+^^^^^^^^^^^^^^^^^
+
+JupyterHub with OAuth authentication needs CLIENT-ID and CLIENT-SECRET from the SKAO-IAM and a TOKEN for the proxy parameter.
+The next code (``service/ExternalSecret.yaml``) contains the secrets we are getting to inject them in this deployment. 
+
+.. note::
+
+    Note ``secretKey: CLIENT-ID`` is the name within the deployment. ``remoteRef.key: app/data/jupyter`` is the path within Vault and ``property: client-id`` is the key create in the previous step.
+
+.. code-block:: bash
+
+    ...
+    spec:
+    refreshInterval: "15s" 
+    secretStoreRef:
+        name: vault-secret-store 
+        kind: SecretStore
+    target:
+        name: jupyterhub-secrets
+        creationPolicy: Owner 
+    data:
+        - secretKey: CLIENT-ID 
+        remoteRef:
+            key: app/data/jupyter 
+            property: client-id 
+        - secretKey: CLIENT-SECRET 
+        remoteRef:
+            key: app/data/jupyter 
+            property: client-secret 
+        - secretKey: TOKEN 
+        remoteRef:
+            key: app/data/jupyter 
+            property: token 
+
+Then in SecretStore (``service/SecretStore.yaml``) we include the specific role and service account reference created previously:
+
+.. code-block:: bash
+    ...
+     auth:
+       kubernetes:
+         mountPath: "kubernetes"
+         role: "jupyterhub" 
+         serviceAccountRef:
+           name: "jupyterhub"
+
+
+Values injection
+^^^^^^^^^^^^^^^^
+
+Values for this deployment are placed in ``service/values.yaml``. This is the main values file and 
+to mix this values files with other value, for example the Secrets values, you have to modify ``service/helmrelease.yaml`` 
+and to include the values and the path for these values following the same structure the ``values.yaml`` file:
+
+.. code-block:: bash
+  
+  ...
+  valuesFrom:
+    - kind: Secret
+      name: jupyterhub-secrets
+      valuesKey: TOKEN
+      targetPath: proxy.secretToken
+      optional: false
+    - kind: Secret
+      name: jupyterhub-secrets
+      valuesKey: CLIENT-ID
+      targetPath: hub.config.GenericOAuthenticator.client_id
+      optional: false
+    - kind: Secret
+      name: jupyterhub-secrets
+      valuesKey: CLIENT-SECRET
+      targetPath: hub.config.GenericOAuthenticator.client_secret
+      optional: false
+    - kind: ConfigMap
+      name: jupyterhub-values
+
+For example ``TOKEN`` is the name of the variable with a Secret defined 
+in ``service/ExternalSecret.yaml``. Then ``targetPath: proxy.secretToken`` is where 
+the variable will be inyected, in this case ``proxy.secretToken`` that will be the same as:
+
+.. code-block:: bash
+
+    ...
+    proxy:
+        secretToken: <injected value>
+    ... 
+
+FluxCD
+------
+Once all these steps are ready, is time to add the repo folder to be managed by FluxCD.
+Run the flux bootstrap aganist the apps included within the ``/apps`` folder in ``ska-telescope/src/deployments/espsrc/ska-src-espsrc-services-cd`` repository.
+
+.. code:: bash
+    
+    flux bootstrap gitlab   \ 
+        --owner=ska-telescope/src/deployments/espsrc   \ 
+        --repository=ska-src-espsrc-services-cd   --branch=main   \ 
+        --path=./apps   --personal   --deploy-token-auth
+
+Check the overall status of the JupyterHub release and kustomisation:
+
+.. code:: bash
+
+    flux get all
+    flux get helmreleases -A
+    flux get kustomizations --watch

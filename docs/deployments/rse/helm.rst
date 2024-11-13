@@ -48,7 +48,6 @@ Service Configuration and Deployment Steps
 
 Clone this repository:
 
-
 .. code-block:: bash
 
     git clone https://gitlab.com/ska-telescope/src/deployments/espsrc/ska-src-espsrc-services-cd.git

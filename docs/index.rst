@@ -85,8 +85,8 @@ load balancing service. The storage provisioning model of the user accounts is c
 For the production notebooks service, the Rucio Storage Element of the espSRC storage has not been set up, but for the development cluster, 
 the RSE has been set up for testing purposes. 
 
-- JupyterHub deployment - Helm :doc:`./deployments/jupyter/helm` , version: 3.1.0
-- JupyterHub deployment - via GitOps :doc:`./deployments/jupyter/gitops` , version: 3.1.0 
+- JupyterHub deployment - Helm :doc:`./deployments/jupyterhub/helm` , version: 3.1.0
+- JupyterHub deployment - via GitOps :doc:`./deployments/jupyterhub/gitops` , version: 3.1.0 
 - Installation reproducibility: |:white_check_mark:| Helm and |:white_check_mark:| GitOps 
 - Storage size for users: **20TB** (extendable)
 - Integrations: 
