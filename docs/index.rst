@@ -8,10 +8,18 @@ In this document you will find all the services deployed within
 espSRC and their configuration and instantiation details based on 
 GitOps, Helm, Docker of manual.
 
+The overall architecture of the espSRC is described here:
+
 .. image:: _static/arch.png
   :width: 780
   :alt: Arch
 
+- 2 kubernetes clusters (production and development): 6 Virtual Machines.
+- 4 Virtual Machines for additional services.
+- 1 HAProxy 
+- 12 FQDNs.
+
+Next sections provide a summary of each service deployed within this architecture 
 
 .. toctree::
    :hidden:
