@@ -8,6 +8,11 @@ In this document you will find all the services deployed within
 espSRC and their configuration and instantiation details based on 
 GitOps, Helm, Docker of manual.
 
+.. image:: _static/arch.png
+  :width: 780
+  :alt: Arch
+
+
 .. toctree::
    :hidden:
 
