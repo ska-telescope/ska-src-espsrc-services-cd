@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: soda-values
+  namespace: soda-test
+data: 
+  values.yaml: |

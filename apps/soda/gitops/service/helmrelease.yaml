@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: soda
+  namespace: soda-test
+spec:
+  interval: 5m0s  # Intervalo para verificar actualizaciones
+  chart:
+    spec:
+      chart: soda
+      sourceRef:
+        kind: HelmRepository
+        name: soda-repository
+        namespace: flux-system
+      version: 0.0.2
+  valuesFrom:
+    - kind: Secret
+      name: soda-secrets
+      valuesKey: CLIENT-ID
+      targetPath: 
+      optional: false
+    - kind: Secret
+      name: soda-secrets
+      valuesKey: CLIENT-SECRET
+      targetPath: 
+      optional: false
+    - kind: ConfigMap
+      name: soda-values
+  

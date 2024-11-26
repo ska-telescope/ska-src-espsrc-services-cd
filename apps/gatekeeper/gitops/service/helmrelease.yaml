@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: gatekeeper
+  namespace: gatekeeper-test
+spec:
+  interval: 5m0s  # Intervalo para verificar actualizaciones
+  chart:
+    spec:
+      chart: gatekeeper
+      sourceRef:
+        kind: HelmRepository
+        name: gatekeeper-repository
+        namespace: flux-system
+      version: 0.0.2
+  valuesFrom:
+    - kind: Secret
+      name: gatekeeper-secrets
+      valuesKey: CLIENT-ID
+      targetPath: gatekeeper.site_capabilities_gatekeeper_client_secret
+      optional: false
+    - kind: Secret
+      name: gatekeeperhub-secrets
+      valuesKey: CLIENT-SECRET
+      targetPath: gatekeeper.site_capabilities_gatekeeper_client_secret
+      optional: false
+    - kind: ConfigMap
+      name: gatekeeper-values
+  

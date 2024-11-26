@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: soda-repository
+  namespace: flux-system
+spec:
+  interval: 5m
+  url:  https://gitlab.com/ska-telescope/src/src-ia/ska-src-ia-vo-soda-deployment/-/tree/main/etc/helm?ref_type=heads
