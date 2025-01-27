@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   url: https://gitlab.com/ska-telescope/src/deployments/espsrc
-  #ref:
-  #  spec.branch: main
+  ref:
+    branch: main
   interval: 5m
-  branch: main
+  #branch: main
