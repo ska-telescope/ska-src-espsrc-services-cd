@@ -1,8 +1,8 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: jupyterhub
-  namespace: jupyterhub-test
+  name: espsrcjupyter-test
+  namespace: espsrcjupyter
 spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
@@ -15,17 +15,17 @@ spec:
       version: 3.3.8
   valuesFrom:
     - kind: Secret
-      name: jupyterhub-secrets
+      name: espsrcjupyter-s
       valuesKey: TOKEN
       targetPath: proxy.secretToken
       optional: false
     - kind: Secret
-      name: jupyterhub-secrets
+      name: espsrcjupyter-s
       valuesKey: CLIENT-ID
       targetPath: hub.config.GenericOAuthenticator.client_id
       optional: false
     - kind: Secret
-      name: jupyterhub-secrets
+      name: espsrcjupyter-s
       valuesKey: CLIENT-SECRET
       targetPath: hub.config.GenericOAuthenticator.client_secret
       optional: false

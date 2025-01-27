@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: jupyterhub-values
-  namespace: jupyterhub-test
+  namespace: espsrcjupyter
 data:
   values.yaml: |
     proxy:
