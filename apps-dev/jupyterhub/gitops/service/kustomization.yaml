@@ -7,3 +7,4 @@ resources:
   - ExternalSecret.yaml
   - values.yaml
   - helmrelease.yaml 
+namespace: espsrcjupyter
