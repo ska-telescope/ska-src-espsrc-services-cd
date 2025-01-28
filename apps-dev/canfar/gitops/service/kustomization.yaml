@@ -8,5 +8,6 @@ resources:
   - SecretStore.yaml
   - ExternalSecret.yaml
 #  - values.yaml
-  - helmrelease-base.yaml 
+  - helmrelease-base.yaml
+  - helmrelease-posixmapper.yaml
 namespace: skaha-system
