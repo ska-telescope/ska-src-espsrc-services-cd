@@ -9,4 +9,4 @@ resources:
   - ExternalSecret.yaml
 #  - values.yaml
   - helmrelease-base.yaml 
-namespace: espsrccanfar
+namespace: skaha-system

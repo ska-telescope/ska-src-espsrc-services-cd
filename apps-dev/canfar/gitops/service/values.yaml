@@ -13,7 +13,7 @@ data:
 
     # POSIX Mapper web service deployment
     deployment:
-      hostname: spsrc25.iaa.csic.es    # Change this!
+      hostname: dachs-service-00.iaa.csic.es    # Change this!
       posixMapper:
         image: images.opencadc.org/platform/posix-mapper:0.2.1
         imagePullPolicy: IfNotPresent

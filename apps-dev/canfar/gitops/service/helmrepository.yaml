@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: science-platform
-  namespace: espsrccanfar
+  namespace: skaha-system
 spec:
   interval: 1m
   url: https://images.opencadc.org/chartrepo/platform
@@ -11,7 +11,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: science-platform-client
-  namespace: espsrccanfar
+  namespace: skaha-system
 spec:
   interval: 1m
   url: https://images.opencadc.org/chartrepo/client
