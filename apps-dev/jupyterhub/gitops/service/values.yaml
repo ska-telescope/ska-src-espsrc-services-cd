@@ -17,7 +17,7 @@ data:
           allow_all: true
         GenericOAuthenticator:
           login_service: "SKA IAM Prototype"          
-          oauth_callback_url: https://notebook.espsrc.iaa.csic.es/hub/oauth_callback
+          oauth_callback_url: https://dachs-service-01.iaa.csic.es/hub/oauth_callback
           authorize_url: https://ska-iam.stfc.ac.uk/authorize
           token_url: https://ska-iam.stfc.ac.uk/token
           userdata_url: https://ska-iam.stfc.ac.uk/userinfo
