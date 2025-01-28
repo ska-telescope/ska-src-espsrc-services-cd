@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: science-platform
         #namespace: flux-system
-        namespace: skaha-system
+        namespace: espsrccanfar
       version: 0.1.9
   valuesFrom:
 #    - kind: Secret
