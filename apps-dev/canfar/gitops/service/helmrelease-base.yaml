@@ -13,7 +13,7 @@ spec:
         name: espsrccanfar-helmrepo
         #namespace: flux-system
         namespace: espsrccanfar
-      version: 0.33
+      version: 0.3.3
 #  valuesFrom:
 #    - kind: Secret
 #      name: espsrccanfar-s
