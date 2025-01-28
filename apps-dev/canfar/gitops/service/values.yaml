@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: espsrccanfar-values
+  namespace: espsrccanfar
+data:
+  values.yaml: |

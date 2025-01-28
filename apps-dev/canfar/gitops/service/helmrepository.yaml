@@ -1,0 +1,17 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: science-platform
+  namespace: espsrccanfar
+spec:
+  interval: 1m
+  url: https://images.opencadc.org/chartrepo/platform
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: science-platform-client
+  namespace: espsrccanfar
+spec:
+  interval: 1m
+  url: https://images.opencadc.org/chartrepo/client
