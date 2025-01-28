@@ -9,7 +9,7 @@ data:
       service:
         type: NodePort
         nodePorts:
-          http: 31082
+          http: 31088
     hub:
       config:
         Authenticator:
