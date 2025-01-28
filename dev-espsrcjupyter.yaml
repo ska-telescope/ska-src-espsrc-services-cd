@@ -1,5 +1,5 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
-kind: kustomization
+kind: Kustomization
 metadata:
   name: dev-espsrcjupyter
   namespace: flux-system
