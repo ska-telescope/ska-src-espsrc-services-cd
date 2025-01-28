@@ -10,7 +10,7 @@ spec:
       chart: base
       sourceRef:
         kind: HelmRepository
-        name: espsrccanfar-helmrepo
+        name: science-platform
         #namespace: flux-system
         namespace: espsrccanfar
       version: 0.3.3
