@@ -10,7 +10,7 @@ spec:
       chart: jupyterhub
       sourceRef:
         kind: HelmRepository
-        name: espsrcjupyter-repo
+        name: espsrcjupyter-helmrepo
         namespace: flux-system
       version: 3.3.8
   valuesFrom:
