@@ -3,8 +3,8 @@ kind: Kustomization
 # use this order
 resources:
   - helmrepository.yaml
-  - ServiceAccount.yaml
-  - ClusterRoleBinding.yaml
+  #- ServiceAccount.yaml
+  #- ClusterRoleBinding.yaml
   - values.yaml
   - helmrelease.yaml
 namespace: traefik
