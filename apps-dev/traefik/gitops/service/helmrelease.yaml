@@ -10,7 +10,7 @@ spec:
       chart: traefik
       sourceRef:
         kind: HelmRepository
-        name: traefik
+        name: espsrc-traefik
         namespace: traefik
       version: 34.2.0
   valuesFrom:
