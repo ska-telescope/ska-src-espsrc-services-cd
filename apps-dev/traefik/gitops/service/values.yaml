@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: espsrc-traefik-values
+  namespace: traefik
+data:
+  values.yaml: |
+    additionalArguments:
+      - "--log.level=DEBUG"
