@@ -12,7 +12,7 @@ spec:
         kind: HelmRepository
         name: espsrc-traefik
         namespace: traefik
-      version: 34.2.0
+      #version: 34.2.0
   valuesFrom:
     - kind: ConfigMap
       name: espsrc-traefik-values
