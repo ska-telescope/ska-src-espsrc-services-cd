@@ -4,7 +4,7 @@ metadata:
   name: espsrccanfar-values
   namespace: espsrccanfar
 data:
-  values.yaml: |
+  values-posixmapper.yaml: |
     replicaCount: 1
 
     # It's best to keep these set as such, unless you're willing to change these in several places.
