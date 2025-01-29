@@ -5,5 +5,3 @@ metadata:
   namespace: traefik
 data:
   values.yaml: |
-    additionalArguments:
-      - "--log.level=DEBUG"
