@@ -5,3 +5,5 @@ metadata:
   namespace: traefik
 data:
   values.yaml: |
+    additionalArguments:
+      - "--providers.kubernetesingress.ingressendpoint.publishedservice=NAMESPACE/TRAEFIK_SVC_NAME" 
