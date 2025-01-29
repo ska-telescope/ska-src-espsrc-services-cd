@@ -15,21 +15,5 @@ spec:
         namespace: espsrccanfar
       version: 0.1.9
   valuesFrom:
-#    - kind: Secret
-#      name: espsrccanfar-s
-#      name: espsrccanfar-s
-#      valuesKey: TOKEN
-#      targetPath: proxy.secretToken
-#      optional: false
-#    - kind: Secret
-#      name: espsrccanfar-s
-#      valuesKey: CLIENT-ID
-#      targetPath: hub.config.GenericOAuthenticator.client_id
-#      optional: false
-#    - kind: Secret
-#      name: espsrccanfar-s
-#      valuesKey: CLIENT-SECRET
-#      targetPath: hub.config.GenericOAuthenticator.client_secret
-#      optional: false
     - kind: ConfigMap
       name: espsrccanfar-values
