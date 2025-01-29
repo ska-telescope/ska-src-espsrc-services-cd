@@ -11,25 +11,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: traefik
-        #namespace: flux-system
         namespace: traefik
       version: 34.2.0
   valuesFrom:
-#    - kind: Secret
-#      name: espsrccanfar-s
-#      name: espsrccanfar-s
-#      valuesKey: TOKEN
-#      targetPath: proxy.secretToken
-#      optional: false
-#    - kind: Secret
-#      name: espsrccanfar-s
-#      valuesKey: CLIENT-ID
-#      targetPath: hub.config.GenericOAuthenticator.client_id
-#      optional: false
-#    - kind: Secret
-#      name: espsrccanfar-s
-#      valuesKey: CLIENT-SECRET
-#      targetPath: hub.config.GenericOAuthenticator.client_secret
-#      optional: false
     - kind: ConfigMap
       name: espsrc-traefik-values
