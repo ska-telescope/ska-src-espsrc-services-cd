@@ -7,4 +7,4 @@ resources:
   #- ClusterRoleBinding.yaml
   - values.yaml
   - helmrelease.yaml
-namespace: traefik
+namespace: kube-system

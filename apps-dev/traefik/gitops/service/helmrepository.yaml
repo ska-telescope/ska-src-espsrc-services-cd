@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: espsrc-traefik
-  namespace: traefik
+  namespace: kube-system
 spec:
   interval: 1m
   url: https://traefik.github.io/charts
