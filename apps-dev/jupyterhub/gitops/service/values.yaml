@@ -7,9 +7,10 @@ data:
   values.yaml: |
     proxy:
       service:
-        type: NodePort
-        nodePorts:
-          http: 31088
+        type: ClusterIP
+        #type: NodePort
+        #nodePorts:
+        #  http: 31088
     hub:
       config:
         Authenticator:
