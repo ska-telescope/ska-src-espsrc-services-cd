@@ -38,7 +38,7 @@ data:
               urllib.request.urlretrieve("https://raw.githubusercontent.com/manuparra/espsrc-science-platform/main/espsrc.png", "espsrc.png")
               c.JupyterHub.logo_file = '/srv/jupyterhub/espsrc.png'
 
-      baseUrl: /
+      baseUrl: /notebook/
       db:
         pvc:
           storageClassName: local-path
