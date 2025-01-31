@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: espsrcprometheus-ingress
+  namespace: espsrcprometheus
+  #annotations:
+  #  traefik.ingress.kubernetes.io/router.middlewares: espsrcprometheus-strip-espsrcprometheus@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: "dachs-service-00.iaa.csic.es"
+      http:
+        paths:
+          - path: "/grafana"
+            pathType: Prefix
+            backend:
+              service:
+                name: proxy-public
+                port:
+                  number: 80
