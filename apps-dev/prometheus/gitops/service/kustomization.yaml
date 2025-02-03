@@ -8,6 +8,7 @@ resources:
   - SecretStore.yaml
   - ExternalSecret.yaml
   - values.yaml
-  - helmrelease.yaml 
+  - helmrelease-prometheus.yaml
+  - helmrelease-grafana.yaml 
   - ingressrule.yaml
 namespace: espsrcprometheus

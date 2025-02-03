@@ -8,3 +8,14 @@ data:
     proxy:
       service:
         type: ClusterIP
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-values
+  namespace: espsrcprometheus
+data:
+  values.yaml: |
+    proxy:
+      service:
+        type: ClusterIP

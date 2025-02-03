@@ -7,13 +7,13 @@ spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
-      chart: jupyterhub
+      chart: prometheus-community
       sourceRef:
         kind: HelmRepository
         name: espsrcprometheus-helmrepo
         #namespace: flux-system
         namespace: espsrcprometheus
-      version: 3.3.8
+      #version: 3.3.8
   valuesFrom:
     - kind: Secret
       name: espsrcprometheus-s
@@ -31,5 +31,5 @@ spec:
       targetPath: hub.config.GenericOAuthenticator.client_secret
       optional: false
     - kind: ConfigMap
-      name: jupyterhub-values
+      name: prometheus-values
   
