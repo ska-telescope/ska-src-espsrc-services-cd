@@ -10,7 +10,7 @@ spec:
       chart: grafana
       sourceRef:
         kind: HelmRepository
-        name: espsrcprometheus-helmrepo
+        name: espsrcgrafana-helmrepo
         #namespace: flux-system
         namespace: espsrcprometheus
       #version: 3.3.8
