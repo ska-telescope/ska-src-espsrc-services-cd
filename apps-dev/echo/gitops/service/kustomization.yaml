@@ -1,0 +1,13 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# use this order
+resources:
+  - helmrepository.yaml
+  - ServiceAccount.yaml
+  - ClusterRoleBinding.yaml
+  - SecretStore.yaml
+  - ExternalSecret.yaml
+  - values.yaml
+  - helmrelease.yaml 
+  - ingressrule.yaml
+namespace: espsrcecho

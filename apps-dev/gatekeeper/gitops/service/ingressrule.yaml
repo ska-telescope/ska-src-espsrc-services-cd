@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: espsrcgatekeeper-ingress
+  namespace: espsrcgatekeeper
+  #annotations:
+  #  traefik.ingress.kubernetes.io/router.middlewares: espsrcgatekeeper-strip-espsrcgatekeeper@kubernetescrd
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: "dachs-service-00.iaa.csic.es"
+      http:
+        paths:
+          - path: "/gatekeeper"
+            pathType: Prefix
+            backend:
+              service:
+                name: proxy-public
+                port:
+                  number: 80
