@@ -1,0 +1,28 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: espsrcgatekeeper-test
+  namespace: espsrcgatekeeper
+spec:
+  interval: 5m0s  # Intervalo para verificar actualizaciones
+  chart:
+    spec:
+      chart: gatekeeper
+      sourceRef:
+        kind: HelmRepository
+        name: espsrcgatekeeper-helmrepo
+        namespace: flux-system
+      version: 0.0.2
+  valuesFrom:
+    - kind: Secret
+      name: espsrcgatekeeper-s
+      valuesKey: CLIENT-ID
+      targetPath: espsrcgatekeeper.site_capabilities_espsrcgatekeeper_client_secret
+      optional: false
+    - kind: Secret
+      name: espsrcgatekeeper-s
+      valuesKey: CLIENT-SECRET
+      targetPath: espsrcgatekeeper.site_capabilities_espsrcgatekeeper_client_secret
+      optional: false
+    - kind: ConfigMap
+      name: espsrcgatekeeper-values

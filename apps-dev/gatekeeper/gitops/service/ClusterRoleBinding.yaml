@@ -1,0 +1,22 @@
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: espsrcgatekeeper-s
+  namespace: espsrcgatekeeper
+spec:
+  refreshInterval: "15s"
+  secretStoreRef:
+    name: vault-secret-store
+    kind: SecretStore
+  target:
+    name: espsrcgatekeeper-s
+    creationPolicy: Owner
+  data:
+    - secretKey: CLIENT-ID
+      remoteRef:
+        key: app/data/espsrcgatekeeper
+        property: client-id
+    - secretKey: CLIENT-SECRET
+      remoteRef:
+        key: app/data/espsrcgatekeeper
+        property: client-secret
