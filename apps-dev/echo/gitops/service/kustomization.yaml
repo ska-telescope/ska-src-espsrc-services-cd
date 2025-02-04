@@ -5,8 +5,8 @@ resources:
   - helmrepository.yaml
   - ServiceAccount.yaml
   - ClusterRoleBinding.yaml
-  - SecretStore.yaml
-  - ExternalSecret.yaml
+#  - SecretStore.yaml
+#  - ExternalSecret.yaml
   - values.yaml
   - helmrelease.yaml 
   - ingressrule.yaml
