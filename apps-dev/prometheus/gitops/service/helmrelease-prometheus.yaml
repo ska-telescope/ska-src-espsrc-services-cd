@@ -7,7 +7,7 @@ spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
-      chart: prometheus-community
+      chart: prometheus
       sourceRef:
         kind: HelmRepository
         name: espsrcprometheus-helmrepo
