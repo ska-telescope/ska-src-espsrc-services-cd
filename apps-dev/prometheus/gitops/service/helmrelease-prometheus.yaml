@@ -15,11 +15,11 @@ spec:
         namespace: espsrcprometheus
       #version: 3.3.8
   valuesFrom:
-    - kind: Secret
-      name: espsrcprometheus-s
-      valuesKey: TOKEN
-      targetPath: proxy.secretToken
-      optional: false
+#    - kind: Secret
+#      name: espsrcprometheus-s
+#      valuesKey: TOKEN
+#      targetPath: proxy.secretToken
+#      optional: false
     - kind: Secret
       name: espsrcprometheus-s
       valuesKey: CLIENT-ID
