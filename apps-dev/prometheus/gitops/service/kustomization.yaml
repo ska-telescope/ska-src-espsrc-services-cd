@@ -7,7 +7,6 @@ resources:
   - ClusterRoleBinding.yaml
   - SecretStore.yaml
   - ExternalSecret.yaml
-  - ExternalSecret-grafana.yaml
   - values.yaml
   - helmrelease-prometheus.yaml
   - helmrelease-grafana.yaml
