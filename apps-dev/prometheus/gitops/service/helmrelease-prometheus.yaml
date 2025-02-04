@@ -11,7 +11,6 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: espsrcprometheus-helmrepo
-
         namespace: espsrcprometheus
       version: 27.3.0
   valuesFrom:

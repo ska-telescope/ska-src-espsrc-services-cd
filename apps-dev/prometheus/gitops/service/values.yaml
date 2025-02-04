@@ -41,8 +41,6 @@ data:
     # Administrator credentials when not using an existing secret (see below)
     #adminUser: admin
     #adminPassword: 
-
-
 ---
 apiVersion: v1
 kind: ConfigMap
