@@ -5,9 +5,31 @@ metadata:
   namespace: espsrcprometheus
 data:
   values.yaml: |
-    proxy:
-      service:
-        type: ClusterIP
+    global:
+      scrape_interval: 300s
+
+    scrape_configs:
+      - job_name: 'prometheus'
+        static_configs:
+          - targets: ['localhost:9090']
+
+      - job_name: 'blackbox'
+        metrics_path: /probe
+        params:
+          module: [http_2xx]
+        static_configs:
+          - targets:
+              - https://notebook.espsrc.iaa.csic.es/
+            labels:
+              name: 'Notebook'
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: __param_target
+      - source_labels: [__param_target]
+        target_label: instance
+      - target_label: __address__
+        replacement: blackbox_exporter:9115
+
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -16,6 +38,28 @@ metadata:
   namespace: espsrcprometheus
 data:
   values.yaml: |
-    proxy:
-      service:
-        type: ClusterIP
+    # Administrator credentials when not using an existing secret (see below)
+    #adminUser: admin
+    #adminPassword: 
+
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: blackbox-values
+  namespace: espsrcprometheus
+data:
+  values.yaml: |
+    modules:
+      http_2xx:
+        prober: http
+        timeout: 5s
+        http:
+          valid_http_versions: ["HTTP/1.1", "HTTP/2"]
+          method: GET
+          fail_if_ssl: false
+          fail_if_not_ssl: false
+          valid_status_codes: []
+          follow_redirects: true
+          preferred_ip_protocol: "ip4"

@@ -7,13 +7,13 @@ spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
-      chart: prometheus-community
+      chart: prometheus-blackbox-exporter
       sourceRef:
         kind: HelmRepository
         name: espsrcprometheus-helmrepo
-
         namespace: espsrcprometheus
-      version: 27.3.0
+      version: 9.2.0
   valuesFrom:
     - kind: ConfigMap
-      name: prometheus-values
+      name: blackbox-values
+  

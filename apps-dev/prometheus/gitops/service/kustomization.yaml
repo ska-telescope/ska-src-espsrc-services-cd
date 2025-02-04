@@ -9,6 +9,7 @@ resources:
   - ExternalSecret.yaml
   - values.yaml
   - helmrelease-prometheus.yaml
-  - helmrelease-grafana.yaml 
+  - helmrelease-grafana.yaml
+  - helmrelease-blackbox.yaml 
   - ingressrule.yaml
 namespace: espsrcprometheus
