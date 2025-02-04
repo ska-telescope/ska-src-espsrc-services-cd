@@ -16,19 +16,29 @@ spec:
       #version: 3.3.8
   valuesFrom:
 #    - kind: Secret
-#      name: espsrcprometheus-s
+#      name: espsrcgefana-s
 #      valuesKey: TOKEN
 #      targetPath: proxy.secretToken
 #      optional: false
+#    - kind: Secret
+#      name: espsrcgrafana-s
+#      valuesKey: CLIENT-ID
+#      targetPath: hub.config.GenericOAuthenticator.client_id
+#      optional: false
+#    - kind: Secret
+#      name: espsrcgrafana-s
+#      valuesKey: CLIENT-SECRET
+#      targetPath: hub.config.GenericOAuthenticator.client_secret
+#      optional: false
     - kind: Secret
-      name: espsrcprometheus-s
-      valuesKey: CLIENT-ID
-      targetPath: hub.config.GenericOAuthenticator.client_id
+      name: espsrcgrafana-s
+      valuesKey: ADMINUSER
+      targetPath: adminUser
       optional: false
     - kind: Secret
-      name: espsrcprometheus-s
-      valuesKey: CLIENT-SECRET
-      targetPath: hub.config.GenericOAuthenticator.client_secret
+      name: espsrcgrafana-s
+      valuesKey: ADMINPASSWORD
+      targetPath: adminPassword
       optional: false
     - kind: ConfigMap
       name: grafana-values
