@@ -3,10 +3,13 @@ kind: Kustomization
 # use this order
 resources:
   - helmrepository.yaml
+  - helmrepository-grafana.yaml
   - ServiceAccount.yaml
   - ClusterRoleBinding.yaml
   - SecretStore.yaml
+  - SecretStore-grafana.yaml
   - ExternalSecret.yaml
+  - ExternalSecret-grafana.yaml
   - values.yaml
   - helmrelease-prometheus.yaml
   - helmrelease-blackbox.yaml
