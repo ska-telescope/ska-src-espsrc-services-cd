@@ -5,4 +5,5 @@ metadata:
   namespace: flux-system
 spec:
   interval: 5m
-  url:  https://gitlab.com/api/v4/projects/60950975/packages/helm/stable
+  #url:  https://gitlab.com/api/v4/projects/60950975/packages/helm/stable
+  url: https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper/-/blob/main/etc/helm/Chart.yaml
