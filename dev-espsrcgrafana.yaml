@@ -1,0 +1,14 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: dev-espsrcgrafana
+  namespace: espsrcgrafana
+spec:
+  interval: 5m
+  path: ./apps-dev/espsrcprometheus/gitops
+  prune: true
+  targetNamespace: espsrcgrafana
+  sourceRef:
+    kind: GitRepository
+    name: gitrepository/espsrc-repo
+  validation: client

@@ -13,7 +13,6 @@ spec:
         name: espsrcgrafana-helmrepo
         namespace: espsrcgrafana
       version: 8.9.0
-
   valuesFrom:
     - kind: Secret
       name: espsrcgrafana-s
