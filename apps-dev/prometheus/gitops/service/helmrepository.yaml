@@ -14,4 +14,4 @@ metadata:
   namespace: espsrcgrafana
 spec:
   interval: 5m
-  url:  https://grafana.github.io/helm-charts
+  url: https://grafana.github.io/helm-charts
