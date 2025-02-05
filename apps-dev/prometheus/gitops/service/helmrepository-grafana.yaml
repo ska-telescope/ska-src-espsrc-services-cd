@@ -1,7 +1,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: espsrcprometheus-helmrepo
+  name: espsrcgrafana-helmrepo
   namespace: espsrcgrafana
 spec:
   interval: 5m
