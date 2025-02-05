@@ -3,7 +3,7 @@ kind: Kustomization
 # use this order
 resources:
   - helmrepository.yaml
-  - helmrepository-grafana.yaml
+  #- helmrepository-grafana.yaml
   - ServiceAccount.yaml
   - ServiceAccount-grafana.yaml
   - ClusterRoleBinding.yaml
