@@ -7,7 +7,7 @@ spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
-      chart: gatekeeper
+      chart: ska-src-gatekeeper-echo
       sourceRef:
         kind: HelmRepository
         name: espsrcgatekeeper-helmrepo
