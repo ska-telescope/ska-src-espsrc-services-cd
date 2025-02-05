@@ -12,5 +12,5 @@ resources:
   - helmrelease-blackbox.yaml
   - helmrelease-grafana.yaml
   - ingressrule.yaml  
-# Trying new things
+# 
 #namespace: espsrcprometheus
