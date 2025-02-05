@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: espsrcprometheus-ingress
-  namespace: espsrcprometheus
+  namespace: espsrcgrafana
   #annotations:
   #  traefik.ingress.kubernetes.io/router.middlewares: espsrcprometheus-strip-espsrcprometheus@kubernetescrd
 spec:
