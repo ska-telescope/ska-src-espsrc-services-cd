@@ -35,7 +35,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: grafana-values
-  namespace: espsrcgrafana
+  #namespace: espsrcgrafana
+  namespace: espsrcprometheus
 data:
   values.yaml: |
     # Administrator credentials when not using an existing secret (see below)
