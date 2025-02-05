@@ -11,8 +11,8 @@ subjects:
     name: espsrcprometheus
     namespace: espsrcprometheus
   - kind: ServiceAccount
-    name: espsrcgrafana
-    namespace: espsrcgrafana
-  - kind: ServiceAccount
     name: espsrcblackbox
     namespace: espsrcprometheus
+  - kind: ServiceAccount
+    name: espsrcgrafana
+    namespace: espsrcgrafana
