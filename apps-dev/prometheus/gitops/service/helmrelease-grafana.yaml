@@ -18,12 +18,12 @@ spec:
   valuesFrom:
     - kind: Secret
       name: espsrcgrafana-s
-      valuesKey: ADMINUSER
+      valuesKey: CLIENT-ID
       targetPath: adminUser
       optional: false
     - kind: Secret
       name: espsrcgrafana-s
-      valuesKey: ADMINPASSWORD
+      valuesKey: CLIENT-SECRET
       targetPath: adminPassword
       optional: false
     - kind: ConfigMap
