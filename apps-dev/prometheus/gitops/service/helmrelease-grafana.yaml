@@ -18,7 +18,7 @@ spec:
   valuesFrom:
     - kind: Secret
       name: espsrcprometheus-s
-      valuesKey: grafana-id
+      valuesKey: GRAFANA-ID
       targetPath: adminUser
       optional: false
     - kind: Secret
