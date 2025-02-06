@@ -17,13 +17,13 @@ spec:
       version: 8.9.0
   valuesFrom:
     - kind: Secret
-      name: espsrcgrafana-s
-      valuesKey: CLIENT-ID
+      name: espsrcprometheus-s
+      valuesKey: GRAFANA-ID
       targetPath: adminUser
       optional: false
     - kind: Secret
-      name: espsrcgrafana-s
-      valuesKey: CLIENT-SECRET
+      name: espsrcprometheus-s
+      valuesKey: GRAFANA-SECRET
       targetPath: adminPassword
       optional: false
     - kind: ConfigMap
