@@ -15,4 +15,4 @@ subjects:
     namespace: espsrcprometheus
   - kind: ServiceAccount
     name: espsrcgrafana
-    namespace: espsrcprometheus
+    namespace: espsrcgrafana

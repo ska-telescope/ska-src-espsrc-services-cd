@@ -1,0 +1,14 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# use this order
+resources:
+  - helmrepository-grafana.yaml
+  - ServiceAccount-grafana.yaml
+  - ClusterRoleBinding.yaml
+  - SecretStore-grafana.yaml
+  - ExternalSecret-grafana.yaml
+  - values.yaml
+  - helmrelease-grafana.yaml
+  - ingressrule.yaml  
+
+namespace: espsrcprometheus
