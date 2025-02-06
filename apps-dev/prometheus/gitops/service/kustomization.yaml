@@ -5,7 +5,7 @@ resources:
   - helmrepository.yaml
   #- helmrepository-grafana.yaml
   - ServiceAccount.yaml
-  #- ServiceAccount-grafana.yaml
+  - ServiceAccount-grafana.yaml
   - ClusterRoleBinding.yaml
   - SecretStore.yaml
   - SecretStore-grafana.yaml
