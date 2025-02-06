@@ -1,0 +1,24 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: my-ingress
+  namespace: default
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host (`192.168.250.245`) && Path(`/vault`)
+      kind: Rule
+      services:
+        - name: vault
+          port: 8200
+    - match: Host (`192.168.250.245`) && Path(`/kdashboard`)
+      kind: Rule
+      services:
+        - name: kubernetes-dashboard-kong-proxy
+          port: 443
+    - match: Host (`192.168.250.245`) && Path(`/espsrcjupyter`)
+      kind: Rule
+      services:
+        - name: proxy-public
+          port: 80
