@@ -13,7 +13,7 @@ resources:
   - ExternalSecret-grafana.yaml
   - values.yaml
   - helmrelease-prometheus.yaml
-  - helmrelease-blackbox.yaml
+  #- helmrelease-blackbox.yaml
   - helmrelease-grafana.yaml
   - ingressrule.yaml  
 # 
