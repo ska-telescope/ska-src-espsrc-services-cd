@@ -41,7 +41,9 @@ data:
   values.yaml: |
     # Administrator credentials when not using an existing secret (see below)
     #adminUser: admin
-    #adminPassword: 
+    #adminPassword:
+    server: 
+      root_url: https://dachs-service-00.iaa.csic.es/grafana
 ---
 apiVersion: v1
 kind: ConfigMap
