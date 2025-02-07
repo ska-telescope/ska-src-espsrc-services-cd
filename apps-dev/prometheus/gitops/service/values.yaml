@@ -39,12 +39,9 @@ metadata:
   namespace: espsrcprometheus
 data:
   values.yaml: |
-    # Administrator credentials when not using an existing secret (see below)
-    #adminUser: admin
-    #adminPassword:
     server: 
       root_url: https://dachs-service-00.iaa.csic.es/grafana
-      serve_from_sub_path: true
+      server_from_sub_path: true
 ---
 apiVersion: v1
 kind: ConfigMap
