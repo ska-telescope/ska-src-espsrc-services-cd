@@ -44,7 +44,7 @@ data:
     #adminPassword:
     server: 
       root_url: https://dachs-service-00.iaa.csic.es/grafana
-      serve_from_sub_path = true
+      serve_from_sub_path: true
 ---
 apiVersion: v1
 kind: ConfigMap
