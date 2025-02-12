@@ -41,11 +41,11 @@ data:
     server: 
       root_url: https://dev.monitor.espsrc.iaa.csic.es
       #server_from_sub_path: true
-    #auth.generic_oauth:
-      #api_url: https://ska-iam.stfc.ac.uk/userinfo
-      #auth_url: https://ska-iam.stfc.ac.uk/authorize
-      #auto_login: false
-      #client_id: 2cdc0aa5-77c7-4045-9b81-9f1493555645
+    auth.generic_oauth:
+      api_url: https://ska-iam.stfc.ac.uk/userinfo
+      auth_url: https://ska-iam.stfc.ac.uk/authorize
+      auto_login: false
+      client_id: 2cdc0aa5-77c7-4045-9b81-9f1493555645
 ---
 apiVersion: v1
 kind: ConfigMap
