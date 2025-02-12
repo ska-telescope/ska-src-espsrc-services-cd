@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: "dachs-service-00.iaa.csic.es"
+    - host: "dev.monitor.espsrc.iaa.csic.es"
       http:
         paths:
           - path: "/"

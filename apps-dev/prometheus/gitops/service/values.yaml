@@ -40,7 +40,7 @@ metadata:
 data:
   values.yaml: |
     server: 
-      root_url: https://dachs-service-00.iaa.csic.es
+      root_url: https://dev.monitor.espsrc.iaa.csic.es
       #server_from_sub_path: true
     #auth.generic_oauth:
       #api_url: https://ska-iam.stfc.ac.uk/userinfo
