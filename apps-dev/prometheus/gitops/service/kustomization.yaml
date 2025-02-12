@@ -6,7 +6,7 @@ resources:
   - ServiceAccount.yaml
   - ClusterRoleBinding.yaml
   - SecretStore.yaml
-  - SecretStore-grafana.yaml
+  #- SecretStore-grafana.yaml
   - ExternalSecret.yaml
   - ExternalSecret-grafana.yaml
   - values.yaml
