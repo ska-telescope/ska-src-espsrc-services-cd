@@ -44,10 +44,17 @@ data:
     auth:
       generic_oauth:
         enabled: true
+        name: OAuth
+        allow_sign_up: true
+        client_id: 2cdc0aa5-77c7-4045-9b81-9f1493555645
+        client_secret: YOUR_CLIENT_SECRET
+        scopes: openid email profile
+        email_attribute_path: email
+        login_attribute_path: preferred_username
         api_url: https://ska-iam.stfc.ac.uk/userinfo
         auth_url: https://ska-iam.stfc.ac.uk/authorize
+        token_url: https://ska-iam.stfc.ac.uk/token
         auto_login: false
-        client_id: 2cdc0aa5-77c7-4045-9b81-9f1493555645
     datasources:
       datasources.yaml:
         apiVersion: 1
@@ -55,7 +62,7 @@ data:
           - name: Prometheus
             type: prometheus
             url: http://10.109.24.12
-            access: proxy
+            #access: proxy
             isDefault: true
     dashboardProviders:
       dashboardproviders.yaml:
