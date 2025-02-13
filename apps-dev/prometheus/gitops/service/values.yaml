@@ -73,6 +73,7 @@ data:
       default:
         kubernetes-apiserver:
           gnetId: 15661
+          revision: 2
           datasource: Prometheus
 
 ---
