@@ -87,7 +87,7 @@ data:
           revision: 2
           datasource: 
             type: prometheus
-            uid: "PBFA97CFB590B2093"
+            uid: "victoriametrics-prod-all"
           jsonData:
             refresh: 10s
             templating: true
