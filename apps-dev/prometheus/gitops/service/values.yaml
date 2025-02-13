@@ -85,7 +85,9 @@ data:
         kubernetes-apiserver:
           gnetId: 15661
           revision: 2
-          datasource: Prometheus
+          datasource: 
+            type: rometheus
+            uid: PBFA97CFB590B2093
           jsonData:
             refresh: 10s
             templating: true
