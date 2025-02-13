@@ -46,6 +46,33 @@ data:
       auth_url: https://ska-iam.stfc.ac.uk/authorize
       auto_login: false
       client_id: 2cdc0aa5-77c7-4045-9b81-9f1493555645
+    datasources:
+      - name: Prometheus
+        type: prometheus
+        url: http://10.109.24.12
+        access: proxy
+        isDefault: true
+    ## Configure grafana dashboard providers
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+        - name: 'default'
+          orgId: 1
+          folder: ''
+          type: file
+          disableDeletion: false
+          editable: true
+          options:
+            path: /var/lib/grafana/dashboards/default
+    ## Configure grafana dashboard to import
+    dashboards:
+      default:
+        kubernetes-apiserver:
+          gnetId: 15661
+          revision: 1
+          datasource: Prometheus
+
 ---
 apiVersion: v1
 kind: ConfigMap
@@ -66,3 +93,5 @@ data:
           valid_status_codes: []
           follow_redirects: true
           preferred_ip_protocol: "ip4"
+
+
