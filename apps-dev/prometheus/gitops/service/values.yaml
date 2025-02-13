@@ -41,18 +41,22 @@ data:
     server: 
       root_url: https://dev.monitor.espsrc.iaa.csic.es
       #server_from_sub_path: true
-    auth.generic_oauth:
-      api_url: https://ska-iam.stfc.ac.uk/userinfo
-      auth_url: https://ska-iam.stfc.ac.uk/authorize
-      auto_login: false
-      client_id: 2cdc0aa5-77c7-4045-9b81-9f1493555645
+    auth:
+      generic_oauth:
+        enabled: true
+        api_url: https://ska-iam.stfc.ac.uk/userinfo
+        auth_url: https://ska-iam.stfc.ac.uk/authorize
+        auto_login: false
+        client_id: 2cdc0aa5-77c7-4045-9b81-9f1493555645
     datasources:
-      - name: Prometheus
-        type: prometheus
-        url: http://10.109.24.12
-        access: proxy
-        isDefault: true
-    ## Configure grafana dashboard providers
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+          - name: Prometheus
+            type: prometheus
+            url: http://10.109.24.12
+            access: proxy
+            isDefault: true
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
@@ -65,12 +69,10 @@ data:
           editable: true
           options:
             path: /var/lib/grafana/dashboards/default
-    ## Configure grafana dashboard to import
     dashboards:
       default:
         kubernetes-apiserver:
           gnetId: 15661
-          revision: 1
           datasource: Prometheus
 
 ---
@@ -93,5 +95,3 @@ data:
           valid_status_codes: []
           follow_redirects: true
           preferred_ip_protocol: "ip4"
-
-
