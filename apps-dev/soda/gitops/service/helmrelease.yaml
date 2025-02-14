@@ -7,22 +7,15 @@ spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
-      chart: soda
+      chart: ska-src-soda
+      version: 0.0.2
       sourceRef:
         kind: HelmRepository
         name: espsrcsoda-repo
-        namespace: flux-system
-      version: 0.0.2
+        namespace: espsrcsoda
+  install:
+    createNamespace: true
+      
   valuesFrom:
-    - kind: Secret
-      name: espsrcsoda-s
-      valuesKey: CLIENT-ID
-      targetPath: 
-      optional: false
-    - kind: Secret
-      name: espsrcsoda-s
-      valuesKey: CLIENT-SECRET
-      targetPath: 
-      optional: false
     - kind: ConfigMap
       name: soda-values

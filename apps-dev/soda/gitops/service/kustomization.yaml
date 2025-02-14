@@ -4,6 +4,7 @@ resources:
   - ServiceAccount.yaml
   - SecretStore.yaml
   - ExternalSecret.yaml
+  - pvc.yaml
   - helmrepository.yaml
   - values.yaml
   - helmrelease.yaml

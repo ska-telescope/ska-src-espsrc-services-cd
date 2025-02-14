@@ -5,3 +5,46 @@ metadata:
   namespace: espsrcsoda
 data: 
   values.yaml: |
+    image:
+      repository: harbor.srcdev.skao.int/soda/visivo-vlkb-soda
+      tag: 1.6.2
+      pullPolicy: Always
+
+    deployment:
+      namespace: ska-src-soda
+
+    extraEnv:
+      - name: SECURITY
+        value:
+      - name: ACCESS_CONTEXT_ROOT
+        value: ska#datasets
+
+    config:
+      datasets: |-
+        fits_path_surveys=/srv/soda/datasets
+        fits_path_cutouts=/srv/soda/cutouts
+        ivoid_authority=test.skao
+        ivoid_resource_key=datasets/fits
+
+    ingress:
+      enabled: false
+      host:
+      proxyBodySize: 5000m
+      proxyBuffering: "off"
+      proxyRequestBuffering: "off"
+
+    # If existingClaim is defined, existingClaimMountOptions will contain additional volumeMount options.
+    # If existingClaim is undefined/null, a soda-pvc will be created with the
+    # corresponding storageClass, size, and accessMode.
+    # For instance:
+    # persistence:
+    #   existingClaim: soda-rse-pvc
+    #   existingClaimMountOptions:
+    #     subPath: "deterministic"
+    #     readOnly: true
+    persistence:
+      existingClaim: soda-rucio-pvc
+      existingClaimMountOptions: null
+      size: "10Gi"
+      storageClass: "local-path"
+      accessMode: ReadWriteOnce    

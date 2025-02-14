@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    helm.sh/resource-policy: keep
+  name: soda-rucio-pv
+  labels:
+    storage: soda-rucio-storage
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-path
+  local:
+    path: /mnt/rucio/dev/deterministic
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-master-dev
+          - k8s-worker01-dev
+          - k8s-worker02-dev
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  annotations:
+    helm.sh/resource-policy: keep
+  name: soda-rucio-pvc
+  namespace: espsrcsoda
+spec:
+  accessModes:
+    - ReadOnlyMany
+  volumeMode: Filesystem
+  storageClassName: local-path
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      storage: soda-rucio-storage

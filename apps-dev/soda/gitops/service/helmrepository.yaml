@@ -2,7 +2,7 @@ apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
   name: espsrcsoda-repo
-  namespace: flux-system
+  namespace: espsrcsoda
 spec:
   interval: 5m
-  url:  https://gitlab.com/ska-telescope/src/src-ia/ska-src-ia-vo-soda-deployment/-/tree/main/etc/helm?ref_type=heads
+  url:  https://gitlab.com/api/v4/projects/61599309/packages/helm/stable

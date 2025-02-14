@@ -11,18 +11,18 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: espsrcgatekeeper-helmrepo
-        namespace: flux-system
+        namespace: espsrcgatekeeper
       version: 0.0.2
   valuesFrom:
     - kind: Secret
       name: espsrcgatekeeper-s
       valuesKey: CLIENT-ID
-      targetPath: espsrcgatekeeper.site_capabilities_espsrcgatekeeper_client_secret
+      targetPath: espsrcgatekeeper.site_capabilities_gatekeeper_client_id
       optional: false
     - kind: Secret
       name: espsrcgatekeeper-s
       valuesKey: CLIENT-SECRET
-      targetPath: espsrcgatekeeper.site_capabilities_espsrcgatekeeper_client_secret
+      targetPath: espsrcgatekeeper.site_capabilities_gatekeeper_client_secret
       optional: false
     - kind: ConfigMap
       name: espsrcgatekeeper-values
