@@ -12,7 +12,6 @@ resources:
   - values.yaml
   - helmrelease-prometheus.yaml
   - helmrelease-grafana.yaml
-  - 15661_rev2.json
   - ingressrule.yaml  
 # 
 #namespace: espsrcprometheus
