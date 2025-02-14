@@ -11,7 +11,7 @@ data:
       pullPolicy: Always
 
     deployment:
-      namespace: ska-src-soda
+      namespace: espsrcsoda
 
     extraEnv:
       - name: SECURITY

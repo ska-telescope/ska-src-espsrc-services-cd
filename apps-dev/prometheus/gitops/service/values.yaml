@@ -84,7 +84,6 @@ data:
           gnetId: 15661
           #revision: 1
           datasource: Prometheus
-
 ---
 apiVersion: v1
 kind: ConfigMap
