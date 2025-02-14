@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: espsrcechoserver
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: espsrcechoserver
+  namespace: espsrcechoserver
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: echoserver
+  template:
+    metadata:
+      labels:
+        app: echoserver
+    spec:
+      containers:
+      - image: ealen/echo-server:latest
+        imagePullPolicy: IfNotPresent
+        name: echoserver
+        ports:
+        - containerPort: 80
+        env:
+        - name: PORT
+          value: "80"

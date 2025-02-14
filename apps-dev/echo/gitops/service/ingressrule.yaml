@@ -1,20 +1,14 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: v1
+kind: Service
 metadata:
-  name: espsrcecho-ingress
-  namespace: espsrcecho
-  #annotations:
-  #  traefik.ingress.kubernetes.io/router.middlewares: espsrcecho-strip-espsrcecho@kubernetescrd
+  name: echoserver
+  namespace: echoserver
 spec:
-  ingressClassName: traefik
-  rules:
-    - host: "dachs-service-00.iaa.csic.es"
-      http:
-        paths:
-          - path: "/echo"
-            pathType: Prefix
-            backend:
-              service:
-                name: proxy-public
-                port:
-                  number: 80
+  type: NodePort  # Cambiado de ClusterIP a NodePort
+  selector:
+    app: echoserver
+  ports:
+    - port: 80               # Puerto en el que el servicio estara disponible
+      targetPort: 80         # Puerto en el que el contenedor esta escuchando
+      protocol: TCP
+      nodePort: 31101        # Puerto NodePort especifico que deseas
