@@ -83,14 +83,18 @@ data:
     dashboards:
       default:
         kubernetes-apiserver:
-          gnetId: 15661
-          revision: 2
-          datasource: 
-            type: prometheus
-            uid: "victoriametrics-prod-all"
-          jsonData:
-            refresh: 10s
-            templating: true
+          file: /var/lib/grafana/dashboards/default/15661_rev2.json
+#    dashboards:
+#      default:
+#        kubernetes-apiserver:
+#          gnetId: 15661
+#           revision: 2
+#           datasource: 
+#            type: prometheus
+#            uid: "victoriametrics-prod-all"
+#          jsonData:
+#            refresh: 10s
+#            templating: true
 
 ---
 apiVersion: v1
