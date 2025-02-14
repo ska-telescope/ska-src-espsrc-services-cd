@@ -154,6 +154,7 @@ data:
                       "type": "dashboard"
                     },
                     "type": "dashboard"
+                    "datasource": "prometheus"
                   }
                 ]
               },
