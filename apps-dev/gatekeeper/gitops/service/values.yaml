@@ -29,14 +29,14 @@ data:
               service_name: "ska-src-gatekeeper-echo" # to proxied address
               ingress_host: ""                        # Host domain the Ingress rules will apply to
               port: 8080
-              uuid: "dec441c5-6e64-4c47-a385-99543994c1d6"
+              uuid: "ec31f0aa-3b80-4980-a8c9-08d2120c3034" #From operator dev
             - route: "/soda"
               namespace: espsrcsoda
               prefix: "http://"
               service_name: "ska-src-soda"
               ingress_host: ""
               port: 8080
-              uuid: "93dffde3-1db0-44df-9379-60c546c16ff8"
+              uuid: "bad7edcd-a0f7-415d-8d9d-0977c6d501b5" #From operator
 
     ingress-nginx:
       controller:
