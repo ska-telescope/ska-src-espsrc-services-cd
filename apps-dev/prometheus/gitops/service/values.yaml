@@ -64,10 +64,7 @@ data:
             url: http://10.109.24.12
             #access: proxy
             isDefault: true
-            jsonData:
-              httpMethod: POST
-              manageAlerts: true
-              tlsSkipVerify: true
+
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
