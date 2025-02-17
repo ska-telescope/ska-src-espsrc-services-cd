@@ -24,20 +24,21 @@ data:
         site_capabilities_gatekeeper_client_audience: site-capabilities-api
         services_cache_ttl: 3600
         services:
-            - route: "/echo"                          # request route
-              namespace: espsrcgatekeeper      # namespace the service will run in, can be different to gatekeeper ns
-              prefix: "http://"                       # usually http:// assuming SSL termination occurs upstream
-              service_name: "espsrc-gatekeeper-echo" # to proxied address
-              ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es"                        # Host domain the Ingress rules will apply to
-              port: 8080
-              uuid: "ec31f0aa-3b80-4980-a8c9-08d2120c3034" #From operator dev
             - route: "/soda"
               namespace: espsrcsoda
               prefix: "http://"
-              service_name: "espsrc-src-soda"
-              ingress_host: ""
+              service_name: "ska-src-soda"
+              ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es"
               port: 8080
               uuid: "bad7edcd-a0f7-415d-8d9d-0977c6d501b5" #From operator
+            - route: "/echo"                          # request route
+              namespace: ska-src-gatekeeper-echo      # namespace the service will run in, can be different to gatekeeper ns
+              prefix: "http://"                       # usually http:// assuming SSL termination occurs upstream
+              service_name: "espsrc-gatekeeper-echo" # to proxied address
+              ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es" # Host domain the Ingress rules will apply to
+              port: 8080
+              uuid: "ec31f0aa-3b80-4980-a8c9-08d2120c3034" #From operator dev
+
 
     ingress-nginx:
       controller:
