@@ -11,7 +11,7 @@ spec:
     - host: "dev.soda.espsrc.iaa.csic.es"
       http:
         paths:
-          - path: "/soda/"
+          - path: "/"
             pathType: Prefix
             backend:
               service:
