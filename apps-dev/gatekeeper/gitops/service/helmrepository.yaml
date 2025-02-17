@@ -4,6 +4,7 @@ metadata:
   name: espsrcgatekeeper-repo
   namespace: espsrcgatekeeper
 spec:
-  interval: 3m
-  url:  https://gitlab.com/api/v4/projects/60950975/packages/helm/stable
+  interval: 5m
+  #url:  https://gitlab.com/api/v4/projects/60950975/packages/helm/stable
+  url: https://gitlab.com/api/v4/projects/61396570/packages/helm/stable
   #url: https://gitlab.com/ska-telescope/src/src-dm/ska-src-dm-da-service-gatekeeper
