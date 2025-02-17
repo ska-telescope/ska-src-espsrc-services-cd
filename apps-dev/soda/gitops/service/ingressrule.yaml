@@ -8,10 +8,10 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: "dachs-service-00.iaa.csic.es"
+    - host: "dev.soda.espsrc.iaa.csic.es"
       http:
         paths:
-          - path: "/soda"
+          - path: "/"
             pathType: Prefix
             backend:
               service:
