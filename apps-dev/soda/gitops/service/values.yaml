@@ -16,8 +16,8 @@ data:
     extraEnv:
       - name: SECURITY
         value:
-      - name: ACCESS_CONTEXT_ROOT
-        value: ska#datasets
+      #- name: ACCESS_CONTEXT_ROOT
+      #  value: ska#datasets
 
     config:
       datasets: |-
