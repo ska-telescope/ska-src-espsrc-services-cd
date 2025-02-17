@@ -6,7 +6,8 @@ metadata:
 data:
   values.yaml: |
     deployment_echo:
-        namespace: ska-src-gatekeeper-echo
+        #namespace: ska-src-gatekeeper-echo
+        namespace: espsrcgatekeeper
         image: harbor.srcdev.skao.int/ska-src-dm-da-service-gatekeeper/service-gatekeeper-echo:1.0.1
 
     gatekeeper:
@@ -28,14 +29,14 @@ data:
               prefix: "http://"                       # usually http:// assuming SSL termination occurs upstream
               service_name: "ska-src-gatekeeper-echo" # to proxied address
               ingress_host: ""                        # Host domain the Ingress rules will apply to
-              port: 8080
+              port: 8082
               uuid: "ec31f0aa-3b80-4980-a8c9-08d2120c3034" #From operator dev
             - route: "/soda"
               namespace: espsrcsoda
               prefix: "http://"
               service_name: "ska-src-soda"
               ingress_host: ""
-              port: 8080
+              port: 8082
               uuid: "bad7edcd-a0f7-415d-8d9d-0977c6d501b5" #From operator
 
     ingress-nginx:
