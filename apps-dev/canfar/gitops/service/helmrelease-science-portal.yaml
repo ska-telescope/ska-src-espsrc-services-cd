@@ -1,0 +1,20 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: espsrccanfar-science-portal
+  #namespace: espsrccanfar
+  namespace: skaha-system
+spec:
+  interval: 5m0s  # Intervalo para verificar actualizaciones
+  chart:
+    spec:
+      chart: scienceportal
+      sourceRef:
+        kind: HelmRepository
+        name: science-platform
+        #namespace: espsrccanfar
+        namespace: skaha-system
+      #version: 0.5.0
+  valuesFrom:
+    - kind: ConfigMap
+      name: science-portal-values
