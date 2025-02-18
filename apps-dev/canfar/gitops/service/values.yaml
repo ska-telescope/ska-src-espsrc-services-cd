@@ -299,7 +299,7 @@ data:
     deployment:
       hostname: dev.canfar.espsrc.iaa.csic.es
       cavern:
-        image: images.opencadc.org/platform/cavern:0.6.2
+        image: images.opencadc.org/platform/cavern:0.7.14
         imagePullPolicy: Always
         # How cavern identifies itself.
         resourceID: "ivo://espsrc.iaa.csic.es/cavern"
