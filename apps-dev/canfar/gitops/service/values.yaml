@@ -405,7 +405,7 @@ data:
     deployment:
       hostname: dev.canfar.espsrc.iaa.csic.es
       storageUI:
-        image: images.opencadc.org/client/storage-ui:1.1.0
+        image: images.opencadc.org/client/storage-ui:1.1.8
         imagePullPolicy: Always
 
         # Optionally set the DEBUG port.
@@ -510,3 +510,6 @@ data:
       architecture: 'standalone'
       auth:
         enabled: false
+      master:
+        persistence:
+          enabled: false
