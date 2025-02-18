@@ -12,4 +12,5 @@ resources:
   - values.yaml
   - helmrelease-base.yaml
   - helmrelease-posixmapper.yaml
+  - helmrelease-science-platform.yaml
 namespace: skaha-system
