@@ -8,7 +8,7 @@ spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
-      chart: storageui
+      chart: storage-ui
       sourceRef:
         kind: HelmRepository
         name: science-platform
