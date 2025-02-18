@@ -197,3 +197,4 @@ data:
     # See the template values file (https://github.com/opencadc/science-platform/blob/SP-3544/deployment/helm/base/values.yaml)
     # for all options.
     base:
+      install: false
