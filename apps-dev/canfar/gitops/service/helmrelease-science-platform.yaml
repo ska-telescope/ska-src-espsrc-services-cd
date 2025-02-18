@@ -11,7 +11,6 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: science-platform
-        #namespace: flux-system
         namespace: espsrccanfar
       version: 0.4.6
   valuesFrom:
