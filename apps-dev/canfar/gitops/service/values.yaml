@@ -278,7 +278,15 @@ data:
       # Uncomment to enable local or self-signed CA certificates for your domain to be trusted.
       # science-portal-cacert-secret:
         # ca.crt: <base64 encoded ca.crt blob>
-        #
+        # For the token caching
+    redis:
+      architecture: 'standalone'
+      auth:
+        enabled: false
+      master:
+        persistence:
+          enabled: false
+
 ---
 apiVersion: v1
 kind: ConfigMap
