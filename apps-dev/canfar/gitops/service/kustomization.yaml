@@ -15,4 +15,5 @@ resources:
   - helmrelease-science-platform.yaml
   - helmrelease-science-portal.yaml
   - helmrelease-cavern.yaml
+  - helmrelease-storageui.yaml
 #namespace: skaha-system
