@@ -1,7 +1,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: espsrccanfar-posixmapper
+  name: espsrccanfar-science-platform
   namespace: espsrccanfar
 spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
