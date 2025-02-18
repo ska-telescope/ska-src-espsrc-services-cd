@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: espsrccanfar-values
   #namespace: espsrccanfar
+  namespace: skaha-system
 data:
   values.yaml: |
     replicaCount: 1
@@ -88,6 +89,7 @@ kind: ConfigMap
 metadata:
   name: skaha-values
   #namespace: espsrccanfar
+  namespace: skaha-system
 data:
   values.yaml: |
     skaha:

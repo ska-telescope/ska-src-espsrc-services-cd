@@ -3,6 +3,7 @@ kind: HelmRelease
 metadata:
   name: espsrccanfar-science-platform
   #namespace: espsrccanfar
+  namespace: skaha-system
 spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:

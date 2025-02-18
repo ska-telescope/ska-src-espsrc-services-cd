@@ -9,4 +9,5 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: espsrccanfar
-    namespace: espsrccanfar
+    #namespace: espsrccanfar
+    namespace: skaha-system
