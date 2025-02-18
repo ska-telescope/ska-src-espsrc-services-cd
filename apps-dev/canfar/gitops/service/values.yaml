@@ -220,7 +220,7 @@ data:
     deployment:
       hostname: dev.canfar.espsrc.iaa.csic.es # Change this!
       sciencePortal:
-        image: images.opencadc.org/platform/science-portal:0.2.1
+        image: images.opencadc.org/platform/science-portal:0.2.8
         imagePullPolicy: Always
         themeName: "src"
 
