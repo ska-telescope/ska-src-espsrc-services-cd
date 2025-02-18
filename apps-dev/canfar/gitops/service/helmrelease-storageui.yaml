@@ -14,7 +14,7 @@ spec:
         name: science-platform-client
         #namespace: espsrccanfar
         namespace: skaha-system
-      #version: 0.4.0
+      version: 0.4.0
   valuesFrom:
     - kind: ConfigMap
       name: storageui-values
