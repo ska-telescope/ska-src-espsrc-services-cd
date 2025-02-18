@@ -8,13 +8,13 @@ spec:
   interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
-      chart: storage-ui
+      chart: storageui
       sourceRef:
         kind: HelmRepository
         name: science-platform
         #namespace: espsrccanfar
         namespace: skaha-system
-      version: 0.4.0
+      #version: 0.4.0
   valuesFrom:
     - kind: ConfigMap
       name: storageui-values
