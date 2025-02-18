@@ -218,7 +218,7 @@ data:
     skaha:
       namespace: skaha-system
     deployment:
-      hostname: canfar.espsrc.iaa.csic.es # Change this!
+      hostname: dev.canfar.espsrc.iaa.csic.es # Change this!
       sciencePortal:
         image: images.opencadc.org/platform/science-portal:0.2.1
         imagePullPolicy: Always
