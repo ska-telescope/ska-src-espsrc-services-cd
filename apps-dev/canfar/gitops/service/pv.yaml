@@ -1,0 +1,40 @@
+# Example Persistent Volume declaration.  The labels to match on is configurable.
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: science-platform-volume  # Name is irrelevant
+  labels:
+    storage: local-path # Labels are VERY relevant.  They should match the values.yaml configuration.
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: local-path
+  local:
+    path:  /mnt/k8s-shared/homes/
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - k8s-master-dev
+          - k8s-worker01-dev
+          - k8s-worker02-dev
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: skaha-pvc
+  namespace: skaha-system
+spec:
+  storageClassName: local-path
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
