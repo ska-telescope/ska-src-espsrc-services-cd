@@ -308,6 +308,9 @@ data:
         # How to find the POSIX Mapper API.  URI (ivo://) or URL (https://).
         posixMapperResourceID: "ivo://espsrc.iaa.csic.es/posix-mapper"
 
+        # URI or URL of the OIDC (IAM) server.  Used to validate incoming tokens.  Required.
+        oidcURI: https://ska-iam.stfc.ac.uk/ # ORIGINAL commented
+
         # The endpoint to serve this from.  Defaults to /cavern.
         # endpoint: "/cavern"
 
@@ -316,7 +319,7 @@ data:
           dataDir: "/data"
 
           # relative path to the node/file content that could be mounted in other containers, including Skaha.
-          subPath: "/cavern"
+          subPath: "cavern"
 
           # See https://github.com/opencadc/vos/tree/master/cavern for documentation.  For deployments using OpenID Connect,
           # the rootOwner MUST be an object with the following properties set.
