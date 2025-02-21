@@ -36,6 +36,7 @@ data:
         posixMapperResourceID: "ivo://espsrc.iaa.csic.es/posix-mapper"
         registryURL: https://spsrc27.iaa.csic.es/reg
         # posixMapperResourceID: "ivo://cadc.nrc.ca/gms"
+        identityManagerClass: org.opencadc.auth.StandardIdentityManager
         
 
         # Optionally set the DEBUG port.
