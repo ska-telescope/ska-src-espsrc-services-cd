@@ -269,7 +269,7 @@ data:
         gmsID: ivo://skao.int/gms
         #gmsID: http://spsrc25.iaa.csic.es:18023
         registryURL: https://spsrc27.iaa.csic.es/reg
-        #identityManagerClass: org.opencadc.auth.StandardIdentityManager
+        identityManagerClass: org.opencadc.auth.StandardIdentityManager
         # The logo in the top left.  No link associated, just the image.  This can be relative, or absolute.
         # Default is the SRCNet Logo.
         #logoURL: /science-portal/images/SRCNetLogo.png
