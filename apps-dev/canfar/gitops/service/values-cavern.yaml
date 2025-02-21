@@ -1,0 +1,108 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cavern-values
+  #namespace: espsrccanfar
+  namespace: skaha-system
+data:
+  values.yaml: |
+    deployment:
+      hostname: dev.canfar.espsrc.iaa.csic.es
+      cavern:
+        image: images.opencadc.org/platform/cavern:0.7.14
+        imagePullPolicy: Always
+        # How cavern identifies itself.
+        resourceID: "ivo://espsrc.iaa.csic.es/cavern"
+
+        registryURL: https://spsrc27.iaa.csic.es/reg
+        # How to find the POSIX Mapper API.  URI (ivo://) or URL (https://).
+        posixMapperResourceID: "ivo://espsrc.iaa.csic.es/posix-mapper"
+
+        # URI or URL of the OIDC (IAM) server.  Used to validate incoming tokens.  Required.
+        oidcURI: https://ska-iam.stfc.ac.uk/ # ORIGINAL commented
+
+        # The endpoint to serve this from.  Defaults to /cavern.
+        # endpoint: "/cavern"
+
+        filesystem:
+          # persistent data directory in container
+          dataDir: "/data"
+
+          # relative path to the node/file content that could be mounted in other containers, including Skaha.
+          subPath: "cavern"
+
+          # See https://github.com/opencadc/vos/tree/master/cavern for documentation.  For deployments using OpenID Connect,
+          # the rootOwner MUST be an object with the following properties set.
+          rootOwner:
+            # The adminUsername is required to be set whomever has admin access over the filesystem.dataDir above.
+            adminUsername: mparra
+
+            # The username of the root owner.
+            username: mparra
+
+            # The UID of the root owner.
+            uid: 1000
+
+            # The GID of the root owner.
+            gid: 1000
+
+          # (optional) keys to generate pre-auth URLs to cavern
+          # keys:
+            # private: <private key file>
+            # public: <public key file>
+
+        # When using a database to connect to UWS.  These can stay as-is, unless you would like to use
+        # a different database.
+        # uws:
+        #   db:
+        #     username: uwsuser
+        #     password: uwspwd
+        #     database: uws
+        #     schema: uws
+        #     maxActive: 2
+        #     storage:
+        #       spec:
+        #         hostPath:
+        #           path: "/cavern-uws/data"
+
+        # Optionally set the DEBUG port.
+        # extraEnv:
+        # - name: CATALINA_OPTS
+        #   value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5555"
+        # - name: JAVA_OPTS
+        #   value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5555"
+
+        # Optionally mount a custom CA certificate
+        # extraVolumeMounts:
+        # - mountPath: "/config/cacerts"
+        #   name: cacert-volume
+
+        # Create the CA certificate volume to be mounted in extraVolumeMounts
+        # extraVolumes:
+        # - name: cacert-volume
+        #   secret:
+        #     defaultMode: 420
+        #     secretName: skaha-cacert-secret
+
+        # Resources provided to the Skaha service.
+        resources:
+          requests:
+            memory: "1Gi"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"
+
+    # secrets:
+      # Uncomment to enable local or self-signed CA certificates for your domain to be trusted.
+      # cavern-cacert-secret:
+      #   ca.crt: <base64 encoded CA crt>
+
+    # Set these appropriately to match your Persistent Volume Claim labels.
+    storage:
+      service:
+        spec:
+          # YAML for service mounted storage.
+          # Example is the persistentVolumeClaim below.  This should match whatever Skaha used.
+          persistentVolumeClaim:
+            claimName: skaha-pvc

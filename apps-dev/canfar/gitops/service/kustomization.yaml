@@ -10,6 +10,9 @@ resources:
   - pv.yaml
   - pvc.yaml
   - values.yaml
+  - values-posixmapper.yaml
+  - values-skaha.yaml
+  - values-cavern.yaml
   - helmrelease-base.yaml
   - helmrelease-posixmapper.yaml
   - helmrelease-science-platform.yaml

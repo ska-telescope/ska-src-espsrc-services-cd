@@ -1,0 +1,117 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: skaha-values
+  #namespace: espsrccanfar
+  namespace: skaha-system
+data:
+  values.yaml: |
+    skaha:
+      namespace: skaha-system
+    skahaWorkload:
+      namespace: skaha-workload
+
+    # Skaha web service deployment
+    deployment:
+      hostname: dev.canfar.espsrc.iaa.csic.es # Change this!
+      skaha:
+        registryHosts: "images.canfar.net"
+        image: images.opencadc.org/platform/skaha:0.17.1
+        imagePullPolicy: Always
+        skahaTld: "/arc"
+        maxUserSessions: "3"
+        sessionExpiry: "345600"
+        defaultQuotaGB: "10"
+
+        # Space delimited list of allowed Image Registry hosts.  These hosts should match the hosts in the User Session images.
+        registryHosts: "spsrc26.iaa.csic.es"
+
+        # The group name to verify users against for permission to use the Science Platform.
+        usersGroup: "ivo://skao.int/gms?prototyping-groups/mini-src/platform-users"
+        # usersGroup: "ivo://cadc.nrc.ca/gms?skaha-users"
+
+        adminsGroup: "ivo://cadc.nrc.ca/gms?skaha-admins"
+
+        # The Resource ID of the Service that contains the Posix Mapping information
+        posixMapperResourceID: "ivo://espsrc.iaa.csic.es/posix-mapper"
+        registryURL: https://spsrc27.iaa.csic.es/reg
+        # posixMapperResourceID: "ivo://cadc.nrc.ca/gms"
+        
+
+        # Optionally set the DEBUG port.
+        # extraEnv:
+        # - name: CATALINA_OPTS
+        #   value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5555"
+        # - name: JAVA_OPTS
+        #   value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5555"
+
+        # Resources provided to the Skaha service.
+        resources:
+          requests:
+            memory: "550M"
+            cpu: "500m"
+          limits:
+            memory: "550M"
+            cpu: "500m"
+
+        homeDir: "/arc/home"
+        defautlQuotaGB: "10"
+
+
+        # Uncomment to debug.  Requires options above as well as service port exposure below.
+        # extraPorts:
+        # - containerPort: 5555
+        #   protocol: TCP
+
+        # Optionally mount a custom CA certificate
+        #extraVolumeMounts:
+        #- mountPath: "/config/cacerts"
+        #  name: cacert-volume
+
+        # If the base names have changed, then change them here, otherwise leave them.
+        priorityClassName: uber-user-preempt-high
+        serviceAccountName: skaha
+
+
+        # Create the CA certificate volume to be mounted in extraVolumeMounts
+        #extraVolumes:
+        #- name: cacert-volume
+        #  secret:
+        #    defaultMode: 420
+        #    secretName: skaha-cacert-secret
+
+    secrets:
+      # Uncomment to enable local or self-signed CA certificates for your domain to be trusted.
+      #  skaha-cacert-secret:
+      #  ca.crt: <base64 encoded CA crt>
+
+    # Exposed extra ports.  Uncomment the java-debug port to expose and debug issues.
+    # service:
+    #   extraPorts:
+      # - port: 5555
+      #   protocol: TCP
+      #   name: java-debug
+
+    # Set these labels appropriately to match your Persistent Volume labels.
+    # The storage.service.spec can be anything that supports ACLs, such as CephFS or Local.
+    # The CephFS Volume can be dynamically allocated here for the storage.service.spec:
+    # Example:
+    # storage:
+    #   service:
+    #     spec:
+    #       cephfs:
+    #         mons:
+    #           ...
+    # Default is a PersistentVolumeClaim to the Local Storage.
+
+    storage:
+      service:
+        spec:
+          persistentVolumeClaim:
+            claimName: skaha-pvc # Match this label up with whatever was installed in the base install, or the desired PVC, or create dynamically provisioned storage.
+
+    # If the base is already installed.  Omission defaults to true, so set this explicitly.
+    # See the template values file (https://github.com/opencadc/science-platform/blob/SP-3544/deployment/helm/base/values.yaml)
+    # for all options.
+    base:
+      install: false
