@@ -18,6 +18,7 @@ data:
         image: images.opencadc.org/platform/science-portal:0.2.8
         imagePullPolicy: Always
         themeName: "src"
+        oidcURI: https://ska-iam.stfc.ac.uk/
 
         resources:
           requests:

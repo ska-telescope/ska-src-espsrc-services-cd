@@ -15,16 +15,17 @@ data:
     deployment:
       hostname: dev.canfar.espsrc.iaa.csic.es
       skaha:
-        registryHosts: "images.canfar.net"
         image: images.opencadc.org/platform/skaha:0.22.0
         imagePullPolicy: Always
         skahaTld: "/arc"
         maxUserSessions: "3"
         sessionExpiry: "345600"
         defaultQuotaGB: "10"
+        oidcURI: https://ska-iam.stfc.ac.uk/
+        gmsID: ivo://skao.int/gms
 
         # Space delimited list of allowed Image Registry hosts.  These hosts should match the hosts in the User Session images.
-        registryHosts: "spsrc26.iaa.csic.es"
+        registryHosts: spsrc26.iaa.csic.es
 
         # The group name to verify users against for permission to use the Science Platform.
         usersGroup: "ivo://skao.int/gms?prototyping-groups/mini-src/platform-users"
