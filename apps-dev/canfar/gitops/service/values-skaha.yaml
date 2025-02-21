@@ -44,7 +44,9 @@ data:
 
         # The Resource ID of the Service that contains the Posix Mapping information
         posixMapperResourceID: "ivo://espsrc.iaa.csic.es/posix-mapper"
+
         registryURL: https://spsrc27.iaa.csic.es/reg
+        
         # posixMapperResourceID: "ivo://cadc.nrc.ca/gms"
         identityManagerClass: org.opencadc.auth.StandardIdentityManager
         
