@@ -18,8 +18,8 @@ data:
       posixMapper:
         image: images.opencadc.org/platform/posix-mapper:0.2.1
         imagePullPolicy: IfNotPresent
-        #resourceID: ivo://opencadc.org/posix-mapper  # original
-        resourceID: ivo://espsrc.iaa.csic.es/posix-mapper
+        resourceID: ivo://opencadc.org/posix-mapper  # original
+        #resourceID: ivo://espsrc.iaa.csic.es/posix-mapper
 
         # Optionally set the DEBUG port.
         # extraEnv:
