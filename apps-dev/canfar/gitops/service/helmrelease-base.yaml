@@ -15,8 +15,6 @@ spec:
         #namespace: flux-system
         #namespace: espsrccanfar
         namespace: skaha-system
-      install:
-        createNamespace: true
       version: 0.3.3
 #  valuesFrom:
 #    - kind: Secret
