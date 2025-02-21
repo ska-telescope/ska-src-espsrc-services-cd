@@ -14,8 +14,8 @@ spec:
         name: science-platform
         #namespace: espsrccanfar
         namespace: skaha-system
-      #version: 0.4.6
-      version: 0.10.4
+      version: 0.8.1
+      #version: 0.10.4
   valuesFrom:
     - kind: ConfigMap
       name: skaha-values
