@@ -8,3 +8,6 @@ spec:
   path: ./ 
   prune: true
   wait: true
+  sourceRef:
+    kind: GitRepository
+    name: espsrc-repo
