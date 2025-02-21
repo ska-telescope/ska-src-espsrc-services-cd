@@ -73,13 +73,13 @@ data:
         password: posixmapperpwd
         database: mapping
         schema: mapping
-      storage:
-        spec:
+    storage:
+      spec:
                 #  persistentVolumeClaim:
                 #claimName: skaha-pvc
 
-          hostPath:
-            path: "/posix-mapper/data"
+      hostPath:
+      path: "/posix-mapper/data"
 
     # An omission equals true, so set this explicitly.
     base:
