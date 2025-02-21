@@ -9,13 +9,14 @@ resources:
   - ExternalSecret.yaml
   - pv.yaml
   - pvc.yaml
-  - values.yaml
   - values-posixmapper.yaml
   - values-skaha.yaml
+  - values-scienceportal.yaml
   - values-cavern.yaml
+  - values-storageui.yaml
   - helmrelease-base.yaml
   - helmrelease-posixmapper.yaml
-  - helmrelease-science-platform.yaml
+  - helmrelease-skaha.yaml
   - helmrelease-science-portal.yaml
   - helmrelease-cavern.yaml
   - helmrelease-storageui.yaml

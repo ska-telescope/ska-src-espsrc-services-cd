@@ -18,21 +18,7 @@ data:
       posixMapper:
         image: images.opencadc.org/platform/posix-mapper:0.2.1
         imagePullPolicy: IfNotPresent
-        resourceID: ivo://opencadc.org/posix-mapper  # original
-        #resourceID: ivo://espsrc.iaa.csic.es/posix-mapper
-
-        # Optionally set the DEBUG port.
-        # extraEnv:
-        # - name: CATALINA_OPTS
-        #   value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5555"
-        # - name: JAVA_OPTS
-        #   value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5555"
-
-        # Uncomment to debug.  Requires options above as well as service port exposure below.
-        # extraPorts:
-        # - containerPort: 5555
-        #   protocol: TCP
-
+        resourceID: ivo://espsrc.iaa.csic.es/posix-mapper
         # Resources provided to the Skaha service.
         resources:
           requests:
@@ -46,18 +32,6 @@ data:
         minGID: 900000
         registryURL: https://spsrc27.iaa.csic.es/reg
 
-        # Optionally mount a custom CA certificate
-        # extraVolumeMounts:
-        # - mountPath: "/config/cacerts"
-        #   name: cacert-volume
-
-        # Create the CA certificate volume to be mounted in extraVolumeMounts
-        # extraVolumes:
-        # - name: cacert-volume
-        #   secret:
-        #     defaultMode: 420
-        #     secretName: posix-manager-cacert-secret
-
     storage:
       service:
         spec:
@@ -65,21 +39,17 @@ data:
             claimName: skaha-pvc # Match this label up with whatever was installed in the base install, or the desired PVC, or create dynamically provisioned storage.
 
     secrets:
-    # These values are preset in the catalina.properties, and this default database only exists beside this service.
-    # It's usually safe to leave these as-is, but make sure they match the values in catalina.properties.
+    
     postgresql:
       auth:
         username: posixmapper
         password: posixmapperpwd
         database: mapping
         schema: mapping
-    storage:
-      spec:
-                #  persistentVolumeClaim:
-                #claimName: skaha-pvc
-
-      hostPath:
-      path: "/posix-mapper/data"
+      storage:
+        spec:
+          hostPath:
+            path: "/posix-mapper/data"
 
     # An omission equals true, so set this explicitly.
     base:

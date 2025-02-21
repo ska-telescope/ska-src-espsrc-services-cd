@@ -106,3 +106,5 @@ data:
           # Example is the persistentVolumeClaim below.  This should match whatever Skaha used.
           persistentVolumeClaim:
             claimName: skaha-pvc
+    base:
+      install: false

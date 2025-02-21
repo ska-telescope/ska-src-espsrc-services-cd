@@ -13,7 +13,7 @@ data:
 
     # Skaha web service deployment
     deployment:
-      hostname: dev.canfar.espsrc.iaa.csic.es # Change this!
+      hostname: dev.canfar.espsrc.iaa.csic.es
       skaha:
         registryHosts: "images.canfar.net"
         image: images.opencadc.org/platform/skaha:0.22.0
@@ -31,7 +31,7 @@ data:
         # usersGroup: "ivo://cadc.nrc.ca/gms?skaha-users"
 
         #adminsGroup: "ivo://cadc.nrc.ca/gms?skaha-admins"
-        adminsGroup: "ivo://skao.int/gms?prototyping-groups/mini-src/platform-users"
+        adminsGroup: "ivo://cadc.nrc.ca/gms?skaha-admins"
 
         # Group URI for users to preempt headless jobs.
         # See https://www.ivoa.net/documents/GMS/20220222/REC-GMS-1.0.html#tth_sEc3.2
@@ -47,16 +47,7 @@ data:
 
         registryURL: https://spsrc27.iaa.csic.es/reg
         
-        # posixMapperResourceID: "ivo://cadc.nrc.ca/gms"
-        identityManagerClass: org.opencadc.auth.StandardIdentityManager
-        
-
-        # Optionally set the DEBUG port.
-        # extraEnv:
-        # - name: CATALINA_OPTS
-        #   value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5555"
-        # - name: JAVA_OPTS
-        #   value: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=0.0.0.0:5555"
+        #identityManagerClass: org.opencadc.auth.StandardIdentityManager
 
         # Resources provided to the Skaha service.
         resources:
