@@ -16,7 +16,7 @@ data:
       hostname: dev.canfar.espsrc.iaa.csic.es # Change this!
       skaha:
         registryHosts: "images.canfar.net"
-        image: images.opencadc.org/platform/skaha:0.17.1
+        image: images.opencadc.org/platform/skaha:0.22.0
         imagePullPolicy: Always
         skahaTld: "/arc"
         maxUserSessions: "3"
