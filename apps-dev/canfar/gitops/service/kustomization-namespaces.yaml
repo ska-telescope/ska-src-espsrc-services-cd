@@ -6,4 +6,5 @@ metadata:
 spec:
   interval: 5m
   path: ./ 
+  prune: true
   wait: true
