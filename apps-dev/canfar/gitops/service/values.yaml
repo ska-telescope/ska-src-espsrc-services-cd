@@ -17,7 +17,7 @@ data:
       sciencePortal:
         image: images.opencadc.org/platform/science-portal:0.2.8
         imagePullPolicy: Always
-        themeName: "src"
+        #themeName: "src"
 
         resources:
           requests:
@@ -26,6 +26,11 @@ data:
           limits:
             memory: "500M"
             cpu: "500m"
+          # The Resource ID of the Service that contains the URL of the Skaha service in the IVOA Registry
+        skahaResourceID: ivo://dev.espsrc.iaa.csic.es/skaha # ORIGINAL example.org, overlay OVERRIDE
+        
+        gmsID: ivo://skao.int/gms
+
         # OIDC (IAM) server configuration.  These are required
         oidc:
           # Location of the OpenID Provider (OIdP), and where users will login
@@ -59,16 +64,16 @@ data:
         #     defaultMode: 420
         #     secretName: science-portal-cacert-secret
 
-        # The Resource ID of the Service that contains the URL of the Skaha service in the IVOA Registry
-        skahaResourceID: ivo://espsrc.iaa.csic.es/skaha
-        gmsID: ivo://skao.int/gms
         #gmsID: http://spsrc25.iaa.csic.es:18023
         registryURL: https://spsrc27.iaa.csic.es/reg
+
         identityManagerClass: org.opencadc.auth.StandardIdentityManager
+
         # The logo in the top left.  No link associated, just the image.  This can be relative, or absolute.
         # Default is the SRCNet Logo.
         #logoURL: /science-portal/images/SRCNetLogo.png
-
+        themeName: src
+        
     # secrets:
       # Uncomment to enable local or self-signed CA certificates for your domain to be trusted.
       # science-portal-cacert-secret:
