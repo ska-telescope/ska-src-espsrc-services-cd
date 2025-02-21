@@ -18,4 +18,4 @@ spec:
       version: 0.1.9
   valuesFrom:
     - kind: ConfigMap
-      name: espsrccanfar-values
+      name: posixmapper-values
