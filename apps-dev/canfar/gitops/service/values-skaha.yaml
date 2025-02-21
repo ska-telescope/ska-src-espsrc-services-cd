@@ -30,7 +30,17 @@ data:
         usersGroup: "ivo://skao.int/gms?prototyping-groups/mini-src/platform-users"
         # usersGroup: "ivo://cadc.nrc.ca/gms?skaha-users"
 
-        adminsGroup: "ivo://cadc.nrc.ca/gms?skaha-admins"
+        #adminsGroup: "ivo://cadc.nrc.ca/gms?skaha-admins"
+        adminsGroup: "ivo://skao.int/gms?prototyping-groups/mini-src/platform-users"
+
+        # Group URI for users to preempt headless jobs.
+        # See https://www.ivoa.net/documents/GMS/20220222/REC-GMS-1.0.html#tth_sEc3.2
+        headlessGroup: "ivo://skao.int/gms?prototyping-groups/mini-src/platform-users" # ORIGINAL unset
+
+        # Group URI for users to ensure priority for their headless jobs.
+        # See https://www.ivoa.net/documents/GMS/20220222/REC-GMS-1.0.html#tth_sEc3.2
+        headlessPriorityGroup: "ivo://skao.int/gms?skaha-priority-headless-users" # ORIGINAL unset
+
 
         # The Resource ID of the Service that contains the Posix Mapping information
         posixMapperResourceID: "ivo://espsrc.iaa.csic.es/posix-mapper"
