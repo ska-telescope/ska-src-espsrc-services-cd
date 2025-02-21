@@ -486,7 +486,7 @@ data:
         registryURL: https://spsrc27.iaa.csic.es/reg
 
         # The IdentityManager class handling authentication.  This should generally be left alone
-        identityManagerClass: org.opencadc.auth.StandardIdentityManager
+        #identityManagerClass: org.opencadc.auth.StandardIdentityManager
 
         # Optionally mount a custom CA certificate
         # extraVolumeMounts:
