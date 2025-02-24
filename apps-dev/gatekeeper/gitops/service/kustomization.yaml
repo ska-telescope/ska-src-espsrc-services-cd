@@ -5,8 +5,7 @@ resources:
   - SecretStore.yaml
   - ExternalSecret.yaml
   - helmchart.yaml
+  - helmrelease.yaml
   #- helmrepository.yaml
   - values.yaml
-  - helmrelease.yaml
-  - ingressrule.yaml
-  
+  - ingressrule.yaml 
