@@ -4,8 +4,7 @@ metadata:
   name: espsrcgatekeeper-chart
   namespace: espsrcgatekeeper
 spec:
-  chart: ska-src-dm-da-service-gatekeeper  # Ajusta esto a la ubicación correcta dentro del repo
-  sourceRef:
-    kind: GitRepository
-    name: espsrcgatekeeper-repo
+  chart: oci://spsrc26.iaa.csic.es/espsrc-cicd/ska-src-service-gatekeeper
+  version: "0.0.3"  # Ajusta esto a la versión correcta
   interval: 5m
+
