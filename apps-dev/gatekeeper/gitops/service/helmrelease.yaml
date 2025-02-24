@@ -10,7 +10,7 @@ spec:
       chart: ska-src-gatekeeper-echo
       sourceRef:
         kind: HelmRepository
-        name: espsrcgatekeeper-helmrepo
+        name: espsrcgatekeeper-repo
         namespace: espsrcgatekeeper
       version: 0.0.3
   valuesFrom:
