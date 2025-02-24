@@ -1,18 +1,47 @@
-apiVersion: helm.toolkit.fluxcd.io/v2beta1
+#apiVersion: helm.toolkit.fluxcd.io/v2beta1
+#kind: HelmRelease
+#metadata:
+#  name: espsrcgatekeeper-test
+#  namespace: espsrcgatekeeper
+#spec:
+#  interval: 5m0s  # Intervalo para verificar actualizaciones
+#  chart:
+#    spec:
+#      chart: ska-src-gatekeeper-echo
+#      sourceRef:
+#        kind: HelmRepository
+#        name: espsrcgatekeeper-repo
+#        namespace: espsrcgatekeeper
+#      version: 0.0.3
+#  valuesFrom:
+#    - kind: Secret
+#      name: espsrcgatekeeper-s
+#      valuesKey: CLIENT-ID
+#      targetPath: espsrcgatekeeper.site_capabilities_gatekeeper_client_id
+#      optional: false
+#    - kind: Secret
+#      name: espsrcgatekeeper-s
+#      valuesKey: CLIENT-SECRET
+#      targetPath: espsrcgatekeeper.site_capabilities_gatekeeper_client_secret
+#      optional: false
+#    - kind: ConfigMap
+#      name: espsrcgatekeeper-values
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
   name: espsrcgatekeeper-test
   namespace: espsrcgatekeeper
 spec:
-  interval: 5m0s  # Intervalo para verificar actualizaciones
+  interval: 5m
   chart:
     spec:
-      chart: ska-src-gatekeeper-echo
+      chart:  ska-src-dm-da-service-gatekeeper/etc/helm/ # Ajusta esto a la ubicación real
       sourceRef:
-        kind: HelmRepository
+        kind: GitRepository
         name: espsrcgatekeeper-repo
-        namespace: espsrcgatekeeper
-      version: 0.0.3
+  values:
+    replicaCount: 1  # Personaliza según necesites
   valuesFrom:
     - kind: Secret
       name: espsrcgatekeeper-s
