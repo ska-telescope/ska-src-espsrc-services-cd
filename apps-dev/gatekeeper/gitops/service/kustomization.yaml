@@ -4,8 +4,8 @@ resources:
   - ServiceAccount.yaml
   - SecretStore.yaml
   - ExternalSecret.yaml
-  - gitrepository.yaml
-  - helmchart.yaml
+  #- gitrepository.yaml
+  #- helmchart.yaml
   - helmrepository.yaml
   - values.yaml
   - helmrelease.yaml

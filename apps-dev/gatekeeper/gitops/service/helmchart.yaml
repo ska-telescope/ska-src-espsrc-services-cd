@@ -4,7 +4,7 @@ metadata:
   name: espsrcgatekeeper-chart
   namespace: espsrcgatekeeper
 spec:
-  chart: ska-src-dm-da-service-gatekeeper/etc/helm/  # Ajusta esto a la ubicación correcta dentro del repo
+  chart: ska-src-dm-da-service-gatekeeper  # Ajusta esto a la ubicación correcta dentro del repo
   sourceRef:
     kind: GitRepository
     name: espsrcgatekeeper-repo
