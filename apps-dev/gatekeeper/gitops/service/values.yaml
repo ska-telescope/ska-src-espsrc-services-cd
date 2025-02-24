@@ -12,7 +12,8 @@ data:
         image: harbor.srcdev.skao.int/ska-src-dm-da-service-gatekeeper/service-gatekeeper-echo:1.0.1
 
     gatekeeper:
-        namespace: ska-src-gatekeeper
+        #namespace: ska-src-gatekeeper
+        nameespace: espsrcgatekeeper
         ingress_proxyBodySize: 5000m
         ingress_proxyBuffering: "off"
         ingress_proxyRequestBuffering: "off"
