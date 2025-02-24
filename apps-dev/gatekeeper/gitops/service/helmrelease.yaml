@@ -8,7 +8,7 @@ spec:
   chart:
     spec:
 #      chart: ska-src-gatekeeper-echo
-      chart: espsrc-cicd/ska-src-service-gatekeeper
+      chart: ska-src-service-gatekeeper
       sourceRef:
         kind: HelmRepository
         name: espsrcgatekeeper-repo
