@@ -9,8 +9,10 @@ spec:
     spec:
       chart: oci://spsrc26.iaa.csic.es/espsrc-cicd/ska-src-service-gatekeeper
       version: "0.0.3"  # Ajusta la versión correcta
-  values:
-    replicaCount: 1  # Ajusta según necesites
+  valuesFrom:
+    #replicaCount: 1  # Ajusta según necesites
+      - kind: ConfigMap
+        name: espsrcgatekeeper-values
 
 
 

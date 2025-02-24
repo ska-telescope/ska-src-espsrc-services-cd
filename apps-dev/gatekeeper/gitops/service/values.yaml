@@ -5,6 +5,7 @@ metadata:
   namespace: espsrcgatekeeper
 data:
   values.yaml: |
+    replicaCount: 1  # Ajusta según necesites
     deployment_echo:
         #namespace: ska-src-gatekeeper-echo
         namespace: espsrcgatekeeper
