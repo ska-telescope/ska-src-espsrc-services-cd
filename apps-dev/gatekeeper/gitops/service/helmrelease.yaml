@@ -4,16 +4,27 @@ metadata:
   name: espsrcgatekeeper-test
   namespace: espsrcgatekeeper
 spec:
-  interval: 5m0s  # Intervalo para verificar actualizaciones
+  interval: 5m0s
   chart:
     spec:
-#      chart: ska-src-gatekeeper-echo
       chart: ska-src-service-gatekeeper
       sourceRef:
-        kind: HelmRepository
-        name: espsrcgatekeeper-repo
-        namespace: espsrcgatekeeper
-      version: 0.0.3
+        kind: HelmChart  # Cambio aquí, ahora apunta al HelmChart OCI
+        name: espsrcgatekeeper-chart  # Nombre del HelmChart que definimos antes
+      version: "0.0.3"
+
+
+#spec:
+#  interval: 5m0s  # Intervalo para verificar actualizaciones
+#  chart:
+#    spec:
+#      chart: ska-src-gatekeeper-echo
+#      chart: ska-src-service-gatekeeper
+#      sourceRef:
+#        kind: HelmRepository
+#        name: espsrcgatekeeper-repo
+#        namespace: espsrcgatekeeper
+#      version: 0.0.3
 #  valuesFrom:
 #    - kind: Secret
 #      name: espsrcgatekeeper-s
