@@ -10,7 +10,7 @@ spec:
       chart: ska-src-service-gatekeeper
       sourceRef:
         kind: HelmChart  # Cambio aquí, ahora apunta al HelmChart OCI
-        name: espsrcgatekeeper-chart  # Nombre del HelmChart que definimos antes
+        name: ska-src-service-gatekeeper  # Nombre del HelmChart que definimos antes
       version: "0.0.3"
 
 
