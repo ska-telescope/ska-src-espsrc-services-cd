@@ -7,7 +7,7 @@ spec:
   interval: 5m0s
   chart:
     spec:
-      chart: ska-src-service-gatekeeper
+      chart: espsrcgatekeeper-chart
       sourceRef:
         kind: HelmChart  # Cambio aquí, ahora apunta al HelmChart OCI
         name: ska-src-service-gatekeeper  # Nombre del HelmChart que definimos antes
