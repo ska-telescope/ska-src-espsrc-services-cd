@@ -13,7 +13,7 @@ data:
 
     gatekeeper:
         #namespace: ska-src-gatekeeper
-        nameespace: espsrcgatekeeper
+        namespace: espsrcgatekeeper
         ingress_proxyBodySize: 5000m
         ingress_proxyBuffering: "off"
         ingress_proxyRequestBuffering: "off"
