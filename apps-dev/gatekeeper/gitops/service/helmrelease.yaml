@@ -3,82 +3,28 @@ kind: HelmRelease
 metadata:
   name: espsrcgatekeeper-test
   namespace: espsrcgatekeeper
+
 spec:
-  interval: 5m0s
+  interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
+      chart: ska-src-gatekeeper-echo
       chart: ska-src-service-gatekeeper
-      version: "0.0.3"  # Ajusta la versión correcta
       sourceRef:
-        kind: HelmRepository  # Tipo de fuente es HelmRepository
-        name: espsrcgatekeeper-repo  # Nombre del HelmRepository
-        namespace: espsrcgatekeeper  # Namespace donde está el HelmRepository      
+        kind: HelmRepository
+        name: espsrcgatekeeper-repo
+        namespace: espsrcgatekeeper
+      version: 0.0.3
   valuesFrom:
-    #replicaCount: 1  # Ajusta según necesites
+    - kind: Secret
+      name: espsrcgatekeeper-s
+      valuesKey: CLIENT-ID
+      targetPath: espsrcgatekeeper.site_capabilities_gatekeeper_client_id
+      optional: false
+    - kind: Secret
+      name: espsrcgatekeeper-s
+      valuesKey: CLIENT-SECRET
+      targetPath: espsrcgatekeeper.site_capabilities_gatekeeper_client_secret
+      optional: false
     - kind: ConfigMap
       name: espsrcgatekeeper-values
-
-
----
-#testing
-#apiVersion: helm.toolkit.fluxcd.io/v2beta1
-#kind: HelmRelease
-#metadata:
-#  name: espsrcgatekeeper-test
-#  namespace: espsrcgatekeeper
-#spec:
-#  interval: 5m0s
-#  chart:
-#    spec:
-#      chart: oci://spsrc26.iaa.csic.es/espsrc-cicd/ska-src-service-gatekeeper
-#      version: "0.0.3"  # Ajusta la versión correcta
-#  valuesFrom:
-    #replicaCount: 1  # Ajusta según necesites
-#    - kind: ConfigMap
-#      name: espsrcgatekeeper-values
-
-
-
-
-#apiVersion: helm.toolkit.fluxcd.io/v2beta1
-#kind: HelmRelease
-#metadata:
-#  name: espsrcgatekeeper-test
-#  namespace: espsrcgatekeeper
-#spec:
-#  interval: 5m0s
-#  chart:
-#    spec:
-#      chart: ska-src-service-gatekeeper
-#      sourceRef:
-#        kind: HelmChart  # Cambio aquí, ahora apunta al HelmChart OCI
-#        name: espsrcgatekeeper-chart  # Nombre del HelmChart que definimos antes
-#      version: "0.0.3"
-#  valuesFrom:
-#    - kind: ConfigMap
-#      name: espsrcgatekeeper-values
-
-#spec:
-#  interval: 5m0s  # Intervalo para verificar actualizaciones
-#  chart:
-#    spec:
-#      chart: ska-src-gatekeeper-echo
-#      chart: ska-src-service-gatekeeper
-#      sourceRef:
-#        kind: HelmRepository
-#        name: espsrcgatekeeper-repo
-#        namespace: espsrcgatekeeper
-#      version: 0.0.3
-#  valuesFrom:
-#    - kind: Secret
-#      name: espsrcgatekeeper-s
-#      valuesKey: CLIENT-ID
-#      targetPath: espsrcgatekeeper.site_capabilities_gatekeeper_client_id
-#      optional: false
-#    - kind: Secret
-#      name: espsrcgatekeeper-s
-#      valuesKey: CLIENT-SECRET
-#      targetPath: espsrcgatekeeper.site_capabilities_gatekeeper_client_secret
-#      optional: false
-#    - kind: ConfigMap
-#      name: espsrcgatekeeper-values
