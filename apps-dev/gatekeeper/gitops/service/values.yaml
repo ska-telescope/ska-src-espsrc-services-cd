@@ -2,18 +2,18 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: espsrcgatekeeper-test
-  namespace: espsrcgatekeeper
+  #namespace: espsrcgatekeeper
 data:
   values.yaml: |
     replicaCount: 1  # Ajusta según necesites
     deployment_echo:
-        #namespace: ska-src-gatekeeper-echo
-        namespace: espsrcgatekeeper
+        namespace: ska-src-gatekeeper-echo
+        #namespace: espsrcgatekeeper
         image: harbor.srcdev.skao.int/ska-src-dm-da-service-gatekeeper/service-gatekeeper-echo:1.0.1
 
     gatekeeper:
-        #namespace: ska-src-gatekeeper
-        namespace: espsrcgatekeeper
+        namespace: ska-src-gatekeeper
+        #namespace: espsrcgatekeeper
         ingress_proxyBodySize: 5000m
         ingress_proxyBuffering: "off"
         ingress_proxyRequestBuffering: "off"
