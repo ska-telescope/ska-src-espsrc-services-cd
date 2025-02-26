@@ -2,18 +2,23 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: espsrcgatekeeper-test
+  #namespace: espsrcgatekeeper
   namespace: gatekeeper
 
 spec:
-  interval: 5m0s
+  interval: 5m0s  # Intervalo para verificar actualizaciones
   chart:
     spec:
+      #chart: ska-src-gatekeeper-echo
       chart: ska-src-service-gatekeeper
-      version: "0.0.3"  # ✅ La versión se mueve aquí
       sourceRef:
-        kind: HelmRepository
-        name: espsrcgatekeeper-repo
+        #kind: HelmRepository
+        repo: https://gitlab.com/api/v4/projects/61636119/packages/helm/stable/
+        version: 0.0.3
+        #name: espsrcgatekeeper-repo
+        #namespace: espsrcgatekeeper
         namespace: gatekeeper
+      #version: 0.0.3
   valuesFrom:
     - kind: Secret
       name: espsrcgatekeeper-s
