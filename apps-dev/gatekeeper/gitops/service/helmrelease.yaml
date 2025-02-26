@@ -11,8 +11,10 @@ spec:
       #chart: ska-src-gatekeeper-echo
       chart: ska-src-service-gatekeeper
       sourceRef:
-        kind: HelmRepository
-        name: espsrcgatekeeper-repo
+        #kind: HelmRepository
+        repo: https://gitlab.com/api/v4/projects/61636119/packages/helm/stable/
+        version: 0.0.3
+        #name: espsrcgatekeeper-repo
         namespace: espsrcgatekeeper
       #version: 0.0.3
   valuesFrom:
