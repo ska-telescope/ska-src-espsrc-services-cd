@@ -1,0 +1,47 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pvc-33d14ca6-2d5b-4978-a56b-ec74114a8655-preparedata
+spec:
+  accessModes:
+  - ReadWriteMany
+  capacity:
+    storage: 20Gi
+  csi:
+    controllerExpandSecretRef:
+      name: csi-cephfs-secret
+      namespace: ceph-csi-cephfs
+    driver: cephfs.csi.ceph.com
+    nodeStageSecretRef:
+      name: csi-cephfs-secret
+      namespace: ceph-csi-cephfs
+    volumeAttributes:
+      clusterID: 9d6eb9e4-037c-11ed-9d60-e43d1aa54c8a
+      fsName: cephfs
+      storage.kubernetes.io/csiProvisionerIdentity: 1737363001212-8081-cephfs.csi.ceph.com
+      subvolumeName: gornergrat-tds-deda553d-2af8-4d40-946f-d64f0e234fca
+      subvolumePath: /volumes/gornergrat-tds/gornergrat-tds-deda553d-2af8-4d40-946f-d64f0e234fca/2a23c9ee-5745-4d82-b4ce-d430ca675cb5
+      volumeNamePrefix: gornergrat-tds-
+    volumeHandle: 0001-0024-9d6eb9e4-037c-11ed-9d60-e43d1aa54c8a-0000000000000001-deda553d-2af8-4d40-946f-d64f0e234fca
+  mountOptions:
+  - debug
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ceph-corbo-cephfs-retain
+  volumeMode: Filesystem
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: userspace-pvc
+  namespace: preparedata
+spec:
+  accessModes:
+  - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+  storageClassName: ceph-corbo-cephfs-retain
+  volumeMode: Filesystem
+  volumeName: pvc-33d14ca6-2d5b-4978-a56b-ec74114a8655-preparedata
