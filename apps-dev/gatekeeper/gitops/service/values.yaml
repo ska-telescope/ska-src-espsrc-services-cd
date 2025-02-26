@@ -42,7 +42,7 @@ data:
               service_name: "espsrc-gatekeeper-echo" # to proxied address
               ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es" # Host domain the Ingress rules will apply to
               port: 8080
-              uuid: "ec31f0aa-3b80-4980-a8c9-08d2120c3034" #From operator dev
+              uuid: "ec31f0aa-3b80-4980-a8c9-08d2120c3034" #From operator devdf
 
     ingress-nginx:
       controller:
