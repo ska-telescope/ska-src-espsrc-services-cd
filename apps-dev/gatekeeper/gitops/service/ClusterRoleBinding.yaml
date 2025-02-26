@@ -9,5 +9,6 @@ roleRef:
 subjects:
   - kind: ServiceAccount
     name: espsrcgatekeeper
-    namespace: espsrcgatekeeper
+    #namespace: espsrcgatekeeper
+    namespace: gatekeeper
   

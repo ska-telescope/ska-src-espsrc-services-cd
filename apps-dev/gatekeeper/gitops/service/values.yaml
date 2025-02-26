@@ -2,7 +2,8 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: espsrcgatekeeper-test
-  namespace: espsrcgatekeeper
+  #namespace: espsrcgatekeeper
+  namespace: gatekeeper
 data:
   values.yaml: |
     deployment_echo:

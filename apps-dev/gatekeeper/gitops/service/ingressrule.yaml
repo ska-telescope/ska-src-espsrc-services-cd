@@ -2,7 +2,8 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: espsrcgatekeeper-ingress
-  namespace: espsrcgatekeeper
+  #namespace: espsrcgatekeeper
+  namespace: gatekeeper
   #annotations:
   #  traefik.ingress.kubernetes.io/router.middlewares: espsrcgatekeeper-strip-espsrcgatekeeper@kubernetescrd
 spec:
