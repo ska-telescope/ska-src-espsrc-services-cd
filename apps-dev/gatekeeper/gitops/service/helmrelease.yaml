@@ -14,7 +14,7 @@ spec:
         kind: HelmRepository
         name: espsrcgatekeeper-repo
         namespace: espsrcgatekeeper
-      version: 0.0.3
+      #version: 0.0.3
   valuesFrom:
     - kind: Secret
       name: espsrcgatekeeper-s
