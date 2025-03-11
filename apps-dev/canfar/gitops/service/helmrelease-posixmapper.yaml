@@ -15,7 +15,7 @@ spec:
         #namespace: flux-system
         #namespace: espsrccanfar
         namespace: skaha-system
-      version: 0.1.9
+      version: 0.4.0
   valuesFrom:
     - kind: ConfigMap
       name: posixmapper-values
