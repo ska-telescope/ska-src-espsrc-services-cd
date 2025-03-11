@@ -16,7 +16,7 @@ data:
     deployment:
       hostname: dev.canfar.espsrc.iaa.csic.es    # Change this!
       posixMapper:
-        image: images.opencadc.org/platform/posix-mapper:0.2.1
+        image: images.opencadc.org/platform/posix-mapper:0.3.1
         imagePullPolicy: IfNotPresent
         resourceID: ivo://espsrc.iaa.csic.es/posix-mapper
         # URI or URL of the OIDC (IAM) server.  Used to validate incoming tokens.

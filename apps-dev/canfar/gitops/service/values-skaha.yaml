@@ -15,7 +15,7 @@ data:
     deployment:
       hostname: dev.canfar.espsrc.iaa.csic.es
       skaha:
-        image: images.opencadc.org/platform/skaha:0.22.0
+        image: images.opencadc.org/platform/skaha:0.27.5
         imagePullPolicy: Always
         skahaTld: "/arc"
         maxUserSessions: "3"

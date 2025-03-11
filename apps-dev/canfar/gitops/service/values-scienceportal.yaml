@@ -15,7 +15,7 @@ data:
     deployment:
       hostname: dev.canfar.espsrc.iaa.csic.es # Change this!
       sciencePortal:
-        image: images.opencadc.org/platform/science-portal:0.2.8
+        image: images.opencadc.org/platform/science-portal:0.5.3
         imagePullPolicy: Always
         themeName: "src"
         oidcURI: https://ska-iam.stfc.ac.uk/
