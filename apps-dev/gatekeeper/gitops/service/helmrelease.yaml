@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: ska-src-service-gatekeeper
-      #version: "0.0.3"  # ✅ La versión se mueve aquí
+      version: "0.1.8"
       sourceRef:
         kind: HelmRepository
         name: espsrcgatekeeper-repo
