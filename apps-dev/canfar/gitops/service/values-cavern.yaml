@@ -12,11 +12,11 @@ data:
         image: images.opencadc.org/platform/cavern:0.8.0
         imagePullPolicy: Always
         # How cavern identifies itself.
-        resourceID: "ivo://espsrc.iaa.csic.es/cavern"
+        resourceID: "ivo://dev.espsrc.iaa.csic.es/cavern"
 
         registryURL: https://spsrc27.iaa.csic.es/reg
         # How to find the POSIX Mapper API.  URI (ivo://) or URL (https://).
-        posixMapperResourceID: "ivo://espsrc.iaa.csic.es/posix-mapper"
+        posixMapperResourceID: "ivo://dev.espsrc.iaa.csic.es/posix-mapper"
 
         # URI or URL of the OIDC (IAM) server.  Used to validate incoming tokens.  Required.
         oidcURI: https://ska-iam.stfc.ac.uk/ # ORIGINAL commented

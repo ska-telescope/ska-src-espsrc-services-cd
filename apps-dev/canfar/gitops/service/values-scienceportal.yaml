@@ -28,7 +28,7 @@ data:
             memory: "500M"
             cpu: "500m"
           # The Resource ID of the Service that contains the URL of the Skaha service in the IVOA Registry
-        skahaResourceID: ivo://espsrc.iaa.csic.es/skaha # ORIGINAL example.org, overlay OVERRIDE
+        skahaResourceID: ivo://dev.espsrc.iaa.csic.es/skaha # ORIGINAL example.org, overlay OVERRIDE
         
         gmsID: ivo://skao.int/gms
 
