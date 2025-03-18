@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: espsrcgatekeeper-test
+  name: espsrcgatekeeper
   #namespace: espsrcgatekeeper
   namespace: gatekeeper
 data:
