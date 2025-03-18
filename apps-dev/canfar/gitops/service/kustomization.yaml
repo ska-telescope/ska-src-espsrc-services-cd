@@ -3,7 +3,7 @@ kind: Kustomization
 # use this order
 resources:
   - namespaces.yaml
-  - kustomization-namespaces.yaml
+  #- kustomization-namespaces.yaml
   - helmrepository.yaml
   - ServiceAccount.yaml
   - ClusterRoleBinding.yaml
