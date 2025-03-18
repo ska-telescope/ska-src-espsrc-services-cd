@@ -102,4 +102,4 @@ data:
               name: site-capabilities-lua-config
           - name: client-credentials
             secret:
-              secretName: client-credentials
+              secretName: espsrcgatekeeper-s
