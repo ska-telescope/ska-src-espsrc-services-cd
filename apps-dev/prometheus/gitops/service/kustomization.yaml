@@ -8,7 +8,7 @@ resources:
   - SecretStore.yaml
   #- SecretStore-grafana.yaml
   - ExternalSecret.yaml
-  - ExternalSecret-grafana.yaml
+  #- ExternalSecret-grafana.yaml
   - values.yaml
   - helmrelease-prometheus.yaml
   - helmrelease-grafana.yaml
