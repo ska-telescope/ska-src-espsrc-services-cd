@@ -18,8 +18,8 @@ data:
       iam_token_endpoint: https://ska-iam.stfc.ac.uk/token
       permissions_api_plugin_authz_endpoint: https://permissions.srcdev.skao.int/api/v1/authorise/plugin/
       site_capabilities_api_get_service_by_id_endpoint: https://site-capabilities.srcdev.skao.int/api/v1/services/
-      #site_capabilities_gatekeeper_client_id:         $CLIENT_ID
-      #site_capabilities_gatekeeper_client_secret:     $CLIENT_SECRET
+      site_capabilities_gatekeeper_client_id: CLIENT_ID
+      site_capabilities_gatekeeper_client_secret: CLIENT_SECRET
       # If .Values.gatekeeper.existingSecret is defined and set to true, the above client_id and client_secret will be ignored.
       # Instead, the deployment will use an existing secret. The existing secret's name needs to match the secretName
       # in the .Values.ingress-nginx.controller.extraVolume named client-credentials below.
