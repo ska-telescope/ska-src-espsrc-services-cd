@@ -37,7 +37,7 @@ data:
           port: 8080
           uuid: "bad7edcd-a0f7-415d-8d9d-0977c6d501b5" #From operator
         - route: "/echo"                          # request route
-          namespace: gatekeeper      # namespace the service will run in, can be different to gatekeeper ns
+          namespace: gatekeeper-echo      # namespace the service will run in, can be different to gatekeeper ns
           prefix: "http://"                       # usually http:// assuming SSL termination occurs upstream
           service_name: "ska-src-gatekeeper-echo" # to proxied address
           ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es" # Host domain the Ingress rules will apply to
