@@ -16,6 +16,16 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: proxy-public
+                name: ska-src-dm-da-service-gatekeeper-echo
                 port:
-                  number: 80
+                  number: 31101
+    - host: "dev.gatekeeper.espsrc.iaa.csic.es"
+      http:
+        paths:
+          - path: "/soda"
+            pathType: Prefix
+            backend:
+              service:
+                name: ska-src-soda
+                port:
+                  number: 8080
