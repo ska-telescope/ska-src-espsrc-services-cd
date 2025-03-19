@@ -75,7 +75,7 @@ data:
         allowSnippetAnnotations: true
         extraArgs:
           enable-ssl-passthrough: ""
-          #default-ssl-certificate: "gatekeeper/nginx-certs"
+          default-ssl-certificate: "gatekeeper/nginx-certs"
         extraVolumeMounts:
           - name: lua-scripts
             mountPath: /etc/nginx/lua/conf/response.lua
