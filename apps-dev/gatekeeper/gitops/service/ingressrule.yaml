@@ -12,7 +12,7 @@ spec:
     - host: "dev.gatekeeper.espsrc.iaa.csic.es"
       http:
         paths:
-          - path: "/"
+          - path: "/echo"
             pathType: Prefix
             backend:
               service:
