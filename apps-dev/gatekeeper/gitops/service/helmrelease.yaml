@@ -18,12 +18,12 @@ spec:
     - kind: Secret
       name: espsrcgatekeeper-s
       valuesKey: client-id
-      targetPath: gatekeeper.site_capabilities_gatekeeper_client_id
+      targetPath: gatekeeper.siteCapabilities.clientId
       optional: false
     - kind: Secret
       name: espsrcgatekeeper-s
       valuesKey: client-secret
-      targetPath: gatekeeper.site_capabilities_gatekeeper_client_secret
+      targetPath: gatekeeper.siteCapabilities.clientSecret
       optional: false
     - kind: ConfigMap
       name: espsrcgatekeeper-values
