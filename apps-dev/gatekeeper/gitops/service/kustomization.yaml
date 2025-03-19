@@ -8,4 +8,4 @@ resources:
   - ExternalSecret.yaml
   - values.yaml
   - helmrelease.yaml
-  - ingressrule.yaml 
+  #- ingressrule.yaml 
