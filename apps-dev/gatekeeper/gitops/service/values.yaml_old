@@ -1,0 +1,106 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: espsrcgatekeeper-values
+  #namespace: espsrcgatekeeper
+  namespace: gatekeeper
+data:
+  values.yaml: |
+    deployment_echo:
+      namespace: ska-src-gatekeeper-echo
+      image: harbor.srcdev.skao.int/ska-src-dm-da-service-gatekeeper/service-gatekeeper-echo:1.0.1
+
+    gatekeeper:
+      namespace: gatekeeper
+      ingress_proxyBodySize: 5000m
+      ingress_proxyBuffering: "off"
+      ingress_proxyRequestBuffering: "off"
+      iam_token_endpoint: https://ska-iam.stfc.ac.uk/token
+      permissions_api_plugin_authz_endpoint: https://permissions.srcdev.skao.int/api/v1/authorise/plugin/
+      site_capabilities_api_get_service_by_id_endpoint: https://site-capabilities.srcdev.skao.int/api/v1/services/
+      site_capabilities_gatekeeper_client_id: CLIENT_ID
+      site_capabilities_gatekeeper_client_secret: CLIENT_SECRET
+      # If .Values.gatekeeper.existingSecret is defined and set to true, the above client_id and client_secret will be ignored.
+      # Instead, the deployment will use an existing secret. The existing secret's name needs to match the secretName
+      # in the .Values.ingress-nginx.controller.extraVolume named client-credentials below.
+      # e.g. an existing secret named "client-credentials".
+      existingSecret: true
+      site_capabilities_gatekeeper_client_scopes: site-capabilities-api-service
+      site_capabilities_gatekeeper_client_audience: site-capabilities-api
+      services_cache_ttl: 3600
+      services:
+        - route: "/soda"
+          namespace: espsrcsoda
+          prefix: "http://"
+          service_name: "ska-src-soda"
+          ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es"
+          port: 8080
+          uuid: "bad7edcd-a0f7-415d-8d9d-0977c6d501b5" #From operator
+        - route: "/echo"                          # request route
+          namespace: gatekeeper-echo      # namespace the service will run in, can be different to gatekeeper ns
+          prefix: "http://"                       # usually http:// assuming SSL termination occurs upstream
+          #service_name: "ska-src-gatekeeper-echo" # to proxied address
+          service_name: "ska-src-dm-da-service-gatekeeper-echo"
+          ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es" # Host domain the Ingress rules will apply to
+          port: 31101
+          uuid: "ec31f0aa-3b80-4980-a8c9-08d2120c3034" #From operator devdf
+
+    ingress-nginx:
+      controller:
+        replicaCount: 1
+        service:
+          type: LoadBalancer
+        metrics:
+          enabled: true
+        ingressClassResource:
+          name: gatekeeper-nginx
+          controllerValue: skao.int/gatekeeper-nginx
+        ingressClass: gatekeeper-nginx
+        admissionWebhooks:
+          enabled: false
+        allowSnippetAnnotations: true
+        extraArgs:
+          enable-ssl-passthrough: ""
+        extraVolumeMounts:
+          - name: response-lua
+            mountPath: /etc/nginx/lua/conf/response.lua
+            subPath: response.lua
+            readOnly: true
+          - name: backend-lua
+            mountPath: /etc/nginx/lua/conf/backend.lua
+            subPath: backend.lua
+            readOnly: true
+          - name: mappings-lua
+            mountPath: /etc/nginx/lua/conf/mappings.lua
+            subPath: mappings.lua
+            readOnly: true
+          - name: permissions-lua
+            mountPath: /etc/nginx/lua/conf/permissions.lua
+            subPath: permissions.lua
+            readOnly: true
+          - name: site-capabilities-lua
+            mountPath: /etc/nginx/lua/conf/site_capabilities.lua
+            subPath: site-capabilities.lua
+            readOnly: true
+          - name: client-credentials
+            mountPath: /etc/credentials
+            readOnly: true
+        extraVolumes:
+          - name: response-lua
+            configMap:
+              name: response-lua-config
+          - name: backend-lua
+            configMap:
+              name: backend-lua-config
+          - name: mappings-lua
+            configMap:
+              name: mappings-lua-config
+          - name: permissions-lua
+            configMap:
+              name: permissions-lua-config
+          - name: site-capabilities-lua
+            configMap:
+              name: site-capabilities-lua-config
+          - name: client-credentials
+            secret:
+              secretName: espsrcgatekeeper-s
