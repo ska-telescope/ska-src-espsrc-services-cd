@@ -7,7 +7,8 @@ metadata:
 data:
   values.yaml: |
     echo:
-      namespace: gatekeeper
+      #namespace: gatekeeper
+      namespace: ska-src-gatekeeper-echo
       image:
         registry: harbor.srcdev.skao.int/ska-src-dm-da-service-gatekeeper
         name: service-gatekeeper-echo
@@ -47,21 +48,24 @@ data:
         existingSecret: true
       services:
         - route: "/echo"
-          namespace: gatekeeper
+          #namespace: gatekeeper
+          namespace: ska-src-gatekeeper-echo
           prefix: "http://"
-          service_name: "ska-src-dm-da-service-gatekeeper-echo"
+          #service_name: "ska-src-dm-da-service-gatekeeper-echo"
+          service_name: "ska-src-gatekeeper-echo"
           #ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es"
           ingress_host: ""
-          port: 31101
-          uuid: "ec31f0aa-3b80-4980-a8c9-08d2120c3034"
-        - route: "/soda"
-          namespace: espsrcsoda
-          prefix: "http://"
-          service_name: "ska-src-soda"
-          #ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es"
-          ingress_host: ""
+          #port: 31101
           port: 8080
-          uuid: "bad7edcd-a0f7-415d-8d9d-0977c6d501b5"
+          uuid: "ec31f0aa-3b80-4980-a8c9-08d2120c3034"
+        #- route: "/soda"
+        #  namespace: espsrcsoda
+        #  prefix: "http://"
+        #  service_name: "ska-src-soda"
+        #  #ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es"
+        #  ingress_host: ""
+        #  port: 8080
+        #  uuid: "bad7edcd-a0f7-415d-8d9d-0977c6d501b5"
 
 
     ingress-nginx:
