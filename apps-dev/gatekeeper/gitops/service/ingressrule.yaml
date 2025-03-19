@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: espsrcgatekeeper-ingress
   #namespace: espsrcgatekeeper
-  #namespace: gatekeeper
+  namespace: gatekeeper
   #annotations:
   #  traefik.ingress.kubernetes.io/router.middlewares: espsrcgatekeeper-strip-espsrcgatekeeper@kubernetescrd
 spec:
@@ -17,7 +17,7 @@ spec:
             backend:
               service:
                 name: ska-src-dm-da-service-gatekeeper-echo
-                namespace: gatekeeper
+                #namespace: gatekeeper
                 port:
                   number: 31101
     - host: "dev.gatekeeper.espsrc.iaa.csic.es"
@@ -28,6 +28,6 @@ spec:
             backend:
               service:
                 name: ska-src-soda
-                namespace: espsrcsoda
+                #namespace: espsrcsoda
                 port:
                   number: 8080
