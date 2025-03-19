@@ -47,7 +47,7 @@ data:
         existingSecret: true
       services:
         - route: "/gatekeeper-echo"                          # request route
-          namespace: gatekeeper              # namespace the service will run in, can be different to gatekeeper ns
+          namespace: gatekeeper # namespace the service will run in, can be different to gatekeeper ns
           prefix: "http://"                       # usually http:// assuming SSL termination occurs upstream
           service_name: "ska-src-dm-da-service-gatekeeper-echo"         # to proxied address
           ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es"                        # Host domain the Ingress rules will apply to
@@ -75,7 +75,7 @@ data:
         allowSnippetAnnotations: true
         extraArgs:
           enable-ssl-passthrough: ""
-          default-ssl-certificate: "gatekeeper/nginx-certs"
+          #default-ssl-certificate: "gatekeeper/nginx-certs"
         extraVolumeMounts:
           - name: lua-scripts
             mountPath: /etc/nginx/lua/conf/response.lua
