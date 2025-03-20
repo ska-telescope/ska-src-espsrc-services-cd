@@ -16,4 +16,4 @@ patches:
   - target:
       kind: Deployment
       name: ska-src-soda
-    path: ../pvc-patch.yaml
+    path: pvc-patch.yaml
