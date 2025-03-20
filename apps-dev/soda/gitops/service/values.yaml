@@ -43,6 +43,7 @@ data:
     #     subPath: "deterministic"
     #     readOnly: true
     persistence:
+      enable: true
       existingClaim: soda-rucio-pvc
       existingClaimMountOptions: null
       size: "10Gi"
