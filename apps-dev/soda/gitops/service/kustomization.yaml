@@ -11,9 +11,9 @@ resources:
   - values.yaml
   - helmrelease.yaml
   #- pvc-patch.yaml
-patches:
+#patches:
   #### Patching where the data go ####
-  - target:
-      kind: Deployment
-      name: ska-src-soda
-    path: pvc-patch.yaml
+#  - target:
+#      kind: Deployment
+#      name: ska-src-soda
+#    path: pvc-patch.yaml
