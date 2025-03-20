@@ -47,4 +47,5 @@ data:
       existingClaimMountOptions: null
       size: "10Gi"
       storageClass: "local-path"
-      accessMode: ReadWriteOnce    
+      #accessMode: ReadWriteOnce
+      accessMode: ReadOnlyMany    
