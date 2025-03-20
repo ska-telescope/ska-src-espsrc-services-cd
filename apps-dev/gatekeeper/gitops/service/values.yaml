@@ -17,7 +17,7 @@ data:
     gatekeeper:
       namespace: gatekeeper
       # the DNS server to use for lookups
-      #resolver: 8.8.8.8
+      resolver: 8.8.8.8
       cache:
         # the time to life for the services cache
         ttl: 3600
