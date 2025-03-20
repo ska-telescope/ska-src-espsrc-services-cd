@@ -4,7 +4,6 @@ metadata:
   annotations:
     helm.sh/resource-policy: keep
   name: soda-rucio-pv
-  namespace: espsrcsoda
   labels:
     storage: soda-rucio-storage
 spec:
