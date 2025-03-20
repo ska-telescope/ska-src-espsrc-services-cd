@@ -17,7 +17,8 @@ data:
       - name: SECURITY
         value:
       - name: ACCESS_CONTEXT_ROOT
-        value: ska#datasets
+        #value: ska#datasets
+        value: soda#datasets
       
 
     config:
