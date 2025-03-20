@@ -7,7 +7,8 @@ data:
   values.yaml: |
     image:
       repository: harbor.srcdev.skao.int/soda/visivo-vlkb-soda
-      tag: 1.6.2
+      #tag: 1.6.2
+      tag: 1.7.0
       pullPolicy: Always
 
     deployment:
@@ -20,7 +21,6 @@ data:
         #value: ska#datasets
         value: soda#datasets
       
-
     config:
       datasets: |-
         fits_path_surveys=/srv/soda/datasets
