@@ -47,7 +47,7 @@ data:
         # e.g. an existing secret named "client-credentials".
         existingSecret: true
       services:
-        - route: "/gatekeeper-echo"
+        - route: "/echo"
           #namespace: gatekeeper
           namespace: ska-src-gatekeeper-echo
           prefix: "http://"
