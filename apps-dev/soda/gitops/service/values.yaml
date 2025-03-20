@@ -14,8 +14,8 @@ data:
       namespace: espsrcsoda
 
     extraEnv:
-      - name: SECURITY
-        value:
+      #- name: SECURITY
+      #  value:
       - name: ACCESS_CONTEXT_ROOT
         #value: ska#datasets
         value: soda#datasets
@@ -45,9 +45,9 @@ data:
     #     subPath: "deterministic"
     #     readOnly: true
     persistence:
+      storageClass: local-path
       existingClaim: soda-rucio-pvc
       existingClaimMountOptions: null
       size: "10Gi"
-      storageClass: "local-path"
       #accessMode: ReadWriteOnce
       accessMode: ReadOnlyMany    
