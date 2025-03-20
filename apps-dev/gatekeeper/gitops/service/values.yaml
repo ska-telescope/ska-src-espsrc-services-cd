@@ -47,12 +47,13 @@ data:
         # e.g. an existing secret named "client-credentials".
         existingSecret: true
       services:
-        - route: "/echo"
+        - route: "/gatekeeper-echo"
           #namespace: gatekeeper
           namespace: ska-src-gatekeeper-echo
           prefix: "http://"
           #service_name: "ska-src-dm-da-service-gatekeeper-echo"
-          service_name: "ska-src-gatekeeper-echo"
+          #service_name: "ska-src-gatekeeper-echo"
+          service_name: "ska-src-dm-da-service-gatekeeper-echo"
           #ingress_host: "dev.gatekeeper.espsrc.iaa.csic.es"
           ingress_host: ""
           #port: 31101
