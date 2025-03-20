@@ -8,5 +8,6 @@ resources:
   - SecretStore.yaml
   - ExternalSecret.yaml
   - pvc.yaml
+  - pvc-patch.yaml
   - values.yaml
   - helmrelease.yaml

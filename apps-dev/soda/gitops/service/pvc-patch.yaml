@@ -1,0 +1,15 @@
+# adopted from the Swiss team https://gitlab.com/ska-telescope/src/deployments/chsrc/ska-src-chsrc-services-cd/-/blob/dev/apps/soda/base/pvc-patch.yaml?ref_type=heads
+
+# our RSE data is under deterministic/<scope>,
+# and SODA takes requests like <scope>/path/to/file.fits,
+# which it expects to find under /srv/surveys/<scope>/path/to/file.fits.
+# The helm chart mounts the PVC under /srv/surveys/ska, which should probably be fixed as that only gives access to the ska scope.
+# Therefore we need to patch the chart so that the RSE data (in our case, deterministic/, which is the root of all scope directories)
+# is mounted under /srv/surveys. In addition, we mount it read-only.
+- op: replace
+  path: /spec/template/spec/containers/0/volumeMounts/0
+  value:
+    name: soda-pvc
+    mountPath: "/srv/surveys"
+    readOnly: true
+    #subPath: "deterministic"
