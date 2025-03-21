@@ -18,8 +18,8 @@ data:
       #- name: SECURITY
       #  value:
       - name: ACCESS_CONTEXT_ROOT
-        value: ska#datasets
-        #value: soda#datasets
+        value: ska#datasets #Be careful, thit is in the code
+
       
     config:
       datasets: |-
